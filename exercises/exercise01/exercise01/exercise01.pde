@@ -8,6 +8,8 @@ final color CLICK_FILL_COLOR = color(100, 100, 250);
 final color BACKGROUND_COLOR = color(250, 150, 150);
 final color STROKE_COLOR = color(250, 150, 150);
 final int CIRCLE_SIZE = 50;
+final color MARGIN_COLORX = color(100,200,100); //I added two new variables called MARGIN_COLOR X & Y in order for the circle to change color at the margin of the window
+final color MARGIN_COLORY = color(100,100,200);
 
 /*The section below declare integer variables with no value stored in theme yet  
 */
@@ -34,16 +36,18 @@ void draw() {
     fill(CLICK_FILL_COLOR);                                           
   }
   else {
-    fill(NO_CLICK_FILL_COLOR);                 //in any other circumstance where the mouse does not get close to the circle, the circle stays purple
+   // fill(NO_CLICK_FILL_COLOR);                 //in any other circumstance where the mouse does not get close to the circle, the circle stays purple
   }
   ellipse(circleX, circleY, CIRCLE_SIZE, CIRCLE_SIZE);//this function draw a circle based on the circleX, circleY, CIRCLE_SIZE, CIRCLE_SIZE values
   circleX += circleVX; //the circleX coordinate will increment by the value of the circleVX variable every frame, making it move
   circleY += circleVY; //same as the last comment except for the circle Y coordinate
   if (circleX + CIRCLE_SIZE/2 > width || circleX - CIRCLE_SIZE/2 < 0) { //if the circle x coordinates exceeds the canvas width size positively or negatively, then the circle will reverse its velocity to go in the opposite direction
     circleVX = -circleVX;
+    fill(MARGIN_COLORX); //Once the ball reaches the X margin , I added the fill function so it will change color to GREEN
   }
   if (circleY + CIRCLE_SIZE/2 > height || circleY - CIRCLE_SIZE/2 < 0) {//same as the previous comment. This time for the height and Y coordinates
     circleVY = -circleVY;
+    fill(MARGIN_COLORY); //Once the ball reaches the Y margin , I added the fill function so it will change color to BLUE 
   }
 }
 
