@@ -1,10 +1,11 @@
+//sets the color background to black
 color backgroundColor = color(0);
-
+//sets the number of static dots, their min & max size and their color (which is set to white)
 int numStatic = 1000;
 int staticSizeMin = 1;
 int staticSizeMax = 3;
 color staticColor = color(200);
-
+// these integers set the coordinates, velocity, speed, dimensions and the color of the Paddle 
 int paddleX;
 int paddleY;
 int paddleVX;
@@ -12,7 +13,7 @@ int paddleSpeed = 10;
 int paddleWidth = 128;
 int paddleHeight = 16;
 color paddleColor = color(255);
-
+// these integers set the coordinates, velocity, speed, size and the color of the ball 
 int ballX;
 int ballY;
 int ballVX;
@@ -21,19 +22,19 @@ int ballSpeed = 5;
 int ballSize = 16;
 color ballColor = color(255);
 
-void setup() {
-  size(640, 480);
+void setup() { //setup initilizes the program
+  size(640, 480); // sets the canvas width to 640px and height to 480px
   
-  setupPaddle();
-  setupBall();
+  setupPaddle(); //calls the function setupPaddle()
+  setupBall();  //calls the function setupBall()
 }
-
-void setupPaddle() {
+// the setupPaddle function sets up the position of the paddle to be at the bottom center of the window when the program starts running
+void setupPaddle() { 
   paddleX = width/2;
   paddleY = height - paddleHeight;
   paddleVX = 0;
 }
-
+//the setupBall function sets up the position of the ball to be at the center of the canvas when the program starts running
 void setupBall() {
   ballX = width/2;
   ballY = height/2;
@@ -41,6 +42,7 @@ void setupBall() {
   ballVY = ballSpeed;
 }
 
+//sets the background to black and calls the function drawStatic() updatePaddle() updateBall() drawPaddle() drawBall() respectively each frame
 void draw() {
   background(backgroundColor);
 
@@ -52,7 +54,7 @@ void draw() {
   drawPaddle();
   drawBall();
 }
-
+//this function use a for loop to draw static by generating random xy coordinates based on the height and width of canvas and by generating random sizes for the static dots
 void drawStatic() {
   for (int i = 0; i < numStatic; i++) {
    float x = random(0,width);
