@@ -8,10 +8,10 @@ final color CLICK_FILL_COLOR = color(100, 100, 250);
 final color BACKGROUND_COLOR = color(250, 150, 150);
 final color STROKE_COLOR = color(250, 150, 150);
 final int CIRCLE_SIZE = 50;
-final color MARGIN_COLORX = color(100,200,100); //I added two new variables called MARGIN_COLOR X & Y in order for the circle to change color at the margin of the window
-final color MARGIN_COLORY = color(100,100,200);
+final color MARGIN_COLORX = color(100,200,100); // CHANGED I added two new variables called MARGIN_COLOR X & Y in order for the circle to change color at the margin of the window
+final color MARGIN_COLORY = color(100,100,200); // CHANGED
 
-/*The section below declare integer variables with no value stored in theme yet  
+/*The section below declare integer variables with no value stored in them yet  
 */
 int circleX;
 int circleY;
@@ -43,12 +43,24 @@ void draw() {
   circleY += circleVY; //same as the last comment except for the circle Y coordinate
   if (circleX + CIRCLE_SIZE/2 > width || circleX - CIRCLE_SIZE/2 < 0) { //if the circle x coordinates exceeds the canvas width size positively or negatively, then the circle will reverse its velocity to go in the opposite direction
     circleVX = -circleVX;
-    fill(MARGIN_COLORX); //Once the ball reaches the X margin , I added the fill function so it will change color to GREEN
+    fill(MARGIN_COLORX); // CHANGED Once the ball reaches the X margin , I added the fill function so it will change color to GREEN
   }
   if (circleY + CIRCLE_SIZE/2 > height || circleY - CIRCLE_SIZE/2 < 0) {//same as the previous comment. This time for the height and Y coordinates
     circleVY = -circleVY;
-    fill(MARGIN_COLORY); //Once the ball reaches the Y margin , I added the fill function so it will change color to BLUE 
+    fill(MARGIN_COLORY); // CHANGED Once the ball reaches the Y margin , I added the fill function so it will change color to BLUE 
   }
+  
+// CHNAGED CONDITION STATEMENT  
+   if (keyPressed) {    // if the 'x' key is pressed, the circle will have a jitter effect on the x axis. IMPORTANT! MAKE SURE THAT CAPSLOCK IS OFF
+    if (key == 'x') {           
+      circleVX = -circleVX;
+      }
+    }
+   if (keyPressed) {   // if the 'y' key is pressed, the circle will have a jitter effect on the y axis. IMPORTANT! MAKE SURE THAT CAPSLOCK IS OFF
+    if (key == 'y') {
+      circleVY = -circleVY;
+      }
+    } 
 }
 
 void mousePressed() {
