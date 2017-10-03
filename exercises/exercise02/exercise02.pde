@@ -64,12 +64,14 @@ void drawStatic() {
    rect(x,y,staticSize,staticSize);
   }
 }
-
+/*the updatePaddle function allows you to move the paddle on the x axis and constrain it within the size of the window  */
 void updatePaddle() {
   paddleX += paddleVX;  
   paddleX = constrain(paddleX,0+paddleWidth/2,width-paddleWidth/2);
 }
-
+/*the updateBall function adds the velocity of the ball at the beginning and pushes it in a direction
+the function also calls the other functions handleBallHitPaddle(),handleBallHitWall(),handleBallOffBottom()
+*/
 void updateBall() {
   ballX += ballVX;
   ballY += ballVY;
@@ -78,28 +80,28 @@ void updateBall() {
   handleBallHitWall();
   handleBallOffBottom();
 }
-
+/*the drawPaddle function draws the paddle with a center anchor point and fills it with white and no stroke */
 void drawPaddle() {
   rectMode(CENTER);
   noStroke();
   fill(paddleColor);
   rect(paddleX, paddleY, paddleWidth, paddleHeight);
 }
-
+/*the drawBall function draws the ball from a center anchor point and fills it with white and no stroke */
 void drawBall() {
   rectMode(CENTER);
   noStroke();
   fill(ballColor);
   rect(ballX, ballY, ballSize, ballSize);
 }
-
+/*this is a condition statement that changes the direction of the ball as soon as the ball overlaps with the paddle */
 void handleBallHitPaddle() {
   if (ballOverlapsPaddle()) {
     ballY = paddleY - paddleHeight/2 - ballSize/2;
     ballVY = -ballVY;
   }
 }
-
+/*this is a boolean operation that checks whether or not the ball hit the paddle and returns either true or false to the previous function */
 boolean ballOverlapsPaddle() {
   if (ballX - ballSize/2 > paddleX - paddleWidth/2 && ballX + ballSize/2 < paddleX + paddleWidth/2) {
     if (ballY > paddleY - paddleHeight/2) {
@@ -108,18 +110,18 @@ boolean ballOverlapsPaddle() {
   }
   return false;
 }
-
+/*the handleBallOffBotton function resets the balls in the center if it extends beyond the marginXY margins of the window */
 void handleBallOffBottom() {
   if (ballOffBottom()) {
     ballX = width/2;
     ballY = height/2;
   }
-}
-
+} 
+/*ballOffBotton is a boolean operations that returns true to the previous function when the ball goes past the bottom of the screen*/
 boolean ballOffBottom() {
   return (ballY - ballSize/2 > height);
 }
-
+/*the handleBallHitWall function reverses the XY velocity when the ball passes the left top right margin of the window */
 void handleBallHitWall() {
   if (ballX - ballSize/2 < 0) {
     ballX = 0 + ballSize/2;
@@ -134,7 +136,7 @@ void handleBallHitWall() {
     ballVY = -ballVY;
   }
 }
-
+/*this is if statement lets you move the paddle from left to right when you press the left or right arrow keys */
 void keyPressed() {
   if (keyCode == LEFT) {
     paddleVX = -paddleSpeed;
@@ -142,7 +144,7 @@ void keyPressed() {
     paddleVX = paddleSpeed;
   }
 }
-
+/*this if statement will nullify the velocity applied in the previous statement when you release the arrow keys, making the paddle stop */
 void keyReleased() {
   if (keyCode == LEFT && paddleVX < 0) {
     paddleVX = 0;
