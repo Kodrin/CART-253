@@ -12,7 +12,7 @@ int paddleVX;
 int paddleSpeed = 10;
 int paddleWidth = 128;
 int paddleHeight = 16;
-color paddleColor = color(255);
+color paddleColor = color(random(255),random(255),random(255));
 // these integers set the coordinates, velocity, speed, size and the color of the ball 
 int ballX;
 int ballY;
@@ -21,6 +21,7 @@ int ballVY;
 int ballSpeed = 5;
 int ballSize = 16;
 color ballColor = color(255);
+int count = 0;
 
 void setup() { //setup initilizes the program
   size(640, 480); // sets the canvas width to 640px and height to 480px
@@ -53,6 +54,8 @@ void draw() {
 
   drawPaddle();
   drawBall();
+  
+
 }
 //this function use a for loop to draw static by generating random xy coordinates based on the height and width of canvas and by generating random sizes for the static dots
 void drawStatic() {
@@ -79,6 +82,7 @@ void updateBall() {
   handleBallHitPaddle();
   handleBallHitWall();
   handleBallOffBottom();
+  handleBallOverMidSection();
 }
 /*the drawPaddle function draws the paddle with a center anchor point and fills it with white and no stroke */
 void drawPaddle() {
@@ -93,7 +97,18 @@ void drawBall() {
   noStroke();
   fill(ballColor);
   rect(ballX, ballY, ballSize, ballSize);
+  
 }
+  //CHANGED this if statement checks whether or not the ball is above or below the height of the canvas/2 and changes the colors appropriately 
+void handleBallOverMidSection(){
+  if (ballOverMidSection()){
+  ballColor = color(200,100,100);
+  }
+  else {
+  ballColor = color(100,200,100);
+  }
+}
+
 /*this is a condition statement that changes the direction of the ball as soon as the ball overlaps with the paddle */
 void handleBallHitPaddle() {
   if (ballOverlapsPaddle()) {
@@ -102,6 +117,7 @@ void handleBallHitPaddle() {
     /*CHANGED the ballSize and paddleWidth are changed everytime the ball hits the paddle. the random numbers are parsed from float to int*/
     ballSize = int(random(8,32));
     paddleWidth = int(random(80,332));
+    count = count + 1;
   }
 }
 /*this is a boolean operation that checks whether or not the ball hit the paddle and returns either true or false to the previous function */
@@ -112,6 +128,22 @@ boolean ballOverlapsPaddle() {
     }
   }
   return false;
+}
+void midSection() {
+  if (ballOverMidSection()){
+  ballColor = color(random(255),random(255),random(255));;
+  }
+}
+
+//CHANGED checks whether or not the ball is above or below the mid section of the screen
+boolean ballOverMidSection() {
+  if(ballY > height/2) {
+  return true;
+  }
+  else{
+  return false;
+  }
+  
 }
 /*the handleBallOffBotton function resets the balls in the center if it extends beyond the marginXY margins of the window */
 void handleBallOffBottom() {
