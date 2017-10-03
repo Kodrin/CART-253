@@ -99,6 +99,9 @@ void handleBallHitPaddle() {
   if (ballOverlapsPaddle()) {
     ballY = paddleY - paddleHeight/2 - ballSize/2;
     ballVY = -ballVY;
+    /*CHANGED the ballSize and paddleWidth are changed everytime the ball hits the paddle. the random numbers are parsed from float to int*/
+    ballSize = int(random(8,32));
+    paddleWidth = int(random(80,332));
   }
 }
 /*this is a boolean operation that checks whether or not the ball hit the paddle and returns either true or false to the previous function */
