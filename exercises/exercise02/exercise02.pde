@@ -21,7 +21,7 @@ int ballVY;
 int ballSpeed = 5;
 int ballSize = 16;
 color ballColor = color(255);
-int count = 0;
+
 
 void setup() { //setup initilizes the program
   size(640, 480); // sets the canvas width to 640px and height to 480px
@@ -45,7 +45,7 @@ void setupBall() {
 
 //sets the background to black and calls the function drawStatic() updatePaddle() updateBall() drawPaddle() drawBall() respectively each frame
 void draw() {
-  background(backgroundColor);
+  //background(backgroundColor);
 
   drawStatic();
 
@@ -54,7 +54,7 @@ void draw() {
 
   drawPaddle();
   drawBall();
-  
+
 
 }
 //this function use a for loop to draw static by generating random xy coordinates based on the height and width of canvas and by generating random sizes for the static dots
@@ -83,6 +83,7 @@ void updateBall() {
   handleBallHitWall();
   handleBallOffBottom();
   handleBallOverMidSection();
+
 }
 /*the drawPaddle function draws the paddle with a center anchor point and fills it with white and no stroke */
 void drawPaddle() {
@@ -117,7 +118,7 @@ void handleBallHitPaddle() {
     /*CHANGED the ballSize and paddleWidth are changed everytime the ball hits the paddle. the random numbers are parsed from float to int*/
     ballSize = int(random(8,32));
     paddleWidth = int(random(80,332));
-    count = count + 1;
+
   }
 }
 /*this is a boolean operation that checks whether or not the ball hit the paddle and returns either true or false to the previous function */
@@ -186,4 +187,11 @@ void keyReleased() {
   } else if (keyCode == RIGHT && paddleVX > 0) {
     paddleVX = 0;
   }
+}
+
+//CHANGED while the ball is over the mid section change color to background(100,200,100);
+void loopDraw() {
+while (ballOverMidSection()) {
+  background(100,200,100);
+}
 }
