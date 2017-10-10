@@ -1,7 +1,7 @@
 //started
 
 /*defines the background color and the varibale Bouncer*/
-color backgroundColor = color(200,150,150);
+color backgroundColor = color(58, 58, 58);
 Bouncer bouncer;
 Bouncer bouncer2;
 
@@ -12,8 +12,8 @@ regarding its position, size, colors
 void setup() {
   size(640,480);
   background(backgroundColor);
-  bouncer = new Bouncer(width/2,height/2,2,2,50,color(150,0,0,50),color(255,0,0,50));
-  bouncer2 = new Bouncer(width/2,height/2,-2,2,50,color(0,0,150,50),color(0,0,255,50));
+  bouncer = new Bouncer(width/2,height/2,2,2,50,color(252, 252, 244,50),color(255,0,0,50));
+  bouncer2 = new Bouncer(width/2,height/2,-2,2,50,color(244, 244, 66, 50),color(0,0,255,50));
 }
 
 /* the program call the update and draw function of the bouncer objects

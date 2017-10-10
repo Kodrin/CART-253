@@ -43,12 +43,12 @@ Variables are also created for the size, and colors of the object
  void handleBounce() {
    if (x - size/2 < 0 || x + size/2 > width) {
     vx = -vx; 
-    //x = int(random(0,width));
+    x = int(random(0,width));
    }
    
    if (y - size/2 < 0 || y + size/2 > height) {
      vy = -vy;
-    //y = int(random(0,height));
+    y = int(random(0,height));
    }
    
    x = constrain(x,size/2,width-size/2);
@@ -66,11 +66,11 @@ Variables are also created for the size, and colors of the object
      fillColor = defaultColor;
    }
  }
- /* CHANGED added mouse clicked
+ /* CHANGED added mouse clicked function that checks whether the mouse is pressed and whether the mouse is in the bouncer
+ if both of these conditions are met, the sixe of the bouncer will increment
  */
  void mouseClicked() {
    if (mousePressed == true && mouseInTheBouncer()== true ) {
-    fill(0);
     size++;
    }
  }
@@ -95,6 +95,6 @@ Variables are also created for the size, and colors of the object
    noStroke();
    fill(fillColor);
    ellipse(x,y,size,size);
-   mouseClicked();
+   mouseClicked();  //CHANGED added the mouseClicked function from earlier to update the size increment every frame
    }
  }
