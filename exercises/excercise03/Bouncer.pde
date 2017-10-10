@@ -39,13 +39,17 @@ Variables are also created for the size, and colors of the object
  /* The handleBounce function check for the border of the screen through if statements 
  and reverse the direction of the velocity. It also constrains the XY values to min and max values
  */
+ 
+ //CHANGED added random teleportation of object by randomizing the XY axis of the bouncer through random functions
  void handleBounce() {
    if (x - size/2 < 0 || x + size/2 > width) {
     vx = -vx; 
+    x = int(random(0,width));
    }
    
    if (y - size/2 < 0 || y + size/2 > height) {
      vy = -vy;
+    y = int(random(0,height));
    }
    
    x = constrain(x,size/2,width-size/2);
