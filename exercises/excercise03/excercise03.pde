@@ -1,8 +1,11 @@
 //started
+
+/*defines the background color */
 color backgroundColor = color(200,150,150);
 Bouncer bouncer;
 Bouncer bouncer2;
 
+/*sets up the size of the canvas and the background color*/
 void setup() {
   size(640,480);
   background(backgroundColor);
