@@ -26,9 +26,10 @@ void draw(){
   y+= height/2;
   
   //Draw your object!
-  //fill(255);
+  pushStyle();
+  fill(255);
   ellipse(x, y, 20, 20);
-  
+  popStyle();
   
   //Update the value
   if (keyPressed == true) {
