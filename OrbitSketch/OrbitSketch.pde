@@ -31,7 +31,14 @@ void draw(){
   
   
   //Update the value
-  val += speed;
+  if (keyPressed == true) {
+    val += speed;
+  } else {
+    val -= speed;
+  }
+
+
+  
   contourEllipse();
 }
 
@@ -39,5 +46,5 @@ void contourEllipse() {
   ellipse(width/2, height/2, 200, 200);
   noFill();
 
-  strokeWeight(10);
+  strokeWeight(1);
 }
