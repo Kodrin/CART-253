@@ -28,7 +28,8 @@ void draw(){
   //Draw your object!
   pushStyle();
   fill(255);
-  ellipse(x, y, 20, 20);
+  rectMode(CENTER);
+  rect(x, y, 20, 20);
   popStyle();
   
   //Update the value
