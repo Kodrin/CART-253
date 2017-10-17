@@ -3,6 +3,8 @@ float val;
 
 //The speed your object moves at along the orbit
 float speed = 0.05;
+float x;
+float y;
 
 void setup(){
   size(500, 500);
