@@ -28,7 +28,6 @@ void draw(){
   ellipse(x, y, 20, 20);
   noFill();
   popStyle();
-  noFill();
   
   //spins in one direction and in another direction when a button is pressed
   if (keyPressed == true) {

@@ -17,7 +17,7 @@ Ball ball;
 // The distance from the edge of the window a paddle should be
 int PADDLE_INSET = 8;
 
-// The background colour during play (black)
+// The background colour during play (brown)
 color backgroundColor = color(188, 111, 43);
 
 
