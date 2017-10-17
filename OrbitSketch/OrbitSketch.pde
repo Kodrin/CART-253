@@ -1,10 +1,8 @@
 //This value specifies where in the ellipse orbit
-//your object is, from 0 to 2*PI
 float val;
 
 //The speed your object moves at along the orbit
 float speed = 0.05;
-int rotationSpeed = 0;
 
 void setup(){
   size(500, 500);
@@ -14,7 +12,6 @@ void draw(){
   background(100);
   
   //Calculate x and y as values between -1 and 1
-  //Search wikipedia for sinus and cosinus if this is unclear :)
   float x = sin(val);
   float y = cos(val);
   
@@ -28,12 +25,12 @@ void draw(){
   
   //Draw your object!
   pushStyle();
-  fill(255);
-  rectMode(CENTER);
-  rect(x, y, 20, 20);
+  ellipse(x, y, 20, 20);
+  noFill();
   popStyle();
+  noFill();
   
-  //Update the value
+  //spins in one direction and in another direction when a button is pressed
   if (keyPressed == true) {
     val += speed;
   } else {
