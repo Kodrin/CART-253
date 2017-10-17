@@ -21,6 +21,9 @@ class Ball {
 
   // The colour of the ball
   color ballColor = color(255);
+  
+  //creating an Y offset for the noise function
+  float yoff = 0.0;
 
 
   /////////////// Constructor ///////////////
@@ -52,6 +55,7 @@ class Ball {
 
   void update() {
     // First update the location based on the velocity (so the ball moves)
+    
     x += vx;
     y += vy;
 
@@ -121,8 +125,12 @@ class Ball {
     noStroke();
     fill(ballColor);
     rectMode(CENTER);
-
+    //This applies the noise movement on the Y axis of the ball
+    yoff = yoff +.01; 
+    int n = int(noise(yoff)*height);
+    print(n);
+    
     // Draw the ball
-    rect(x, y, SIZE, SIZE);
+    rect(x, y = n, SIZE, SIZE);
   }
 }
