@@ -18,7 +18,7 @@ Ball ball;
 int PADDLE_INSET = 8;
 
 // The background colour during play (black)
-color backgroundColor = color(0);
+color backgroundColor = color(188, 111, 43);
 
 
 // setup()
