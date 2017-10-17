@@ -28,7 +28,7 @@ color backgroundColor = color(150);
 
 void setup() {
   // Set the size
-  size(640, 480);
+  size(640, 640);
 
   // Create the paddles on either side of the screen. 
   // Use PADDLE_INSET to to position them on x, position them both at centre on y

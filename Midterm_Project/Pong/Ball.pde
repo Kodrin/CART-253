@@ -149,13 +149,13 @@ class Ball {
     strokeWeight(1);
     fill(ballColor);
     popStyle();
-    rectMode(CENTER);
+    //rectMode(CENTER);
     //This applies the noise movement on the Y axis 
     yoff = yoff +.01; 
     int n = int(noise(yoff)*height);
     //print(n);
     
     // Draw the ball
-    rect(x, y = n, SIZE, SIZE);
+    ellipse(x, y = n, SIZE, SIZE);
   }
 }

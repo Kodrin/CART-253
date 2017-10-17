@@ -6,7 +6,7 @@ float val;
 float speed = 0.05;
 float x;
 float y;
-int WIDTH = 60;
+int WIDTH = 90;
 int HEIGHT = 30;
 
 
@@ -17,8 +17,8 @@ void update(){
   y = cos(val);
   
   //Multiply x and y by the ellipses width (100) and height (500)
-  x *= 100;
-  y *= 100;
+  x *= 250;
+  y *= 250;
   
   //Move the centrepoint of the ellipse orbit where you want it
   x+= width/2;
@@ -48,7 +48,7 @@ void update(){
 }
 
 void contourEllipse() {
-  ellipse(width/2, height/2, 200, 200);
+  ellipse(width/2, height/2, 500, 500);
   noFill();
 
   strokeWeight(1);
