@@ -115,7 +115,29 @@ class Ball {
       vx = -vx;
     }
   }
-
+// collision for orbit paddle
+  void collideOrbit(Orbit orbit) {
+    // Calculate possible overlaps with the paddle side by side
+    boolean insideLeft = (x + SIZE/2 > orbit.x - orbit.WIDTH/2);
+    boolean insideRight = (x - SIZE/2 < orbit.x + orbit.WIDTH/2);
+    boolean insideTop = (y + SIZE/2 > orbit.y - orbit.HEIGHT/2);
+    boolean insideBottom = (y - SIZE/2 < orbit.y + orbit.HEIGHT/2);
+    
+    // Check if the ball overlaps with the paddle
+    if (insideLeft && insideRight && insideTop && insideBottom) {
+      // If it was moving to the left
+      if (vx < 0) {
+        // Reset its position to align with the right side of the paddle
+        x = int(orbit.x + orbit.WIDTH/2 + SIZE/2);
+      } else if (vx > 0) {
+        // Reset its position to align with the left side of the paddle
+        x = int(orbit.x - orbit.WIDTH/2 - SIZE/2);
+      }
+      // And make it bounce
+      vx = -vx;
+      print("check!");
+    }
+  }
   // display()
   //
   // Draw the ball at its position
@@ -131,7 +153,7 @@ class Ball {
     //This applies the noise movement on the Y axis 
     yoff = yoff +.01; 
     int n = int(noise(yoff)*height);
-    print(n);
+    //print(n);
     
     // Draw the ball
     rect(x, y = n, SIZE, SIZE);

@@ -4,12 +4,17 @@ float val;
 
 //The speed your object moves at along the orbit
 float speed = 0.05;
+float x;
+float y;
+int WIDTH = 60;
+int HEIGHT = 30;
+
 
 void update(){
   
   //Calculate x and y as values between -1 and 1
-  float x = sin(val);
-  float y = cos(val);
+  x = sin(val);
+  y = cos(val);
   
   //Multiply x and y by the ellipses width (100) and height (500)
   x *= 100;
@@ -25,7 +30,7 @@ void update(){
   pushMatrix();
   translate(x, y);
   rotate(-val);
-  rect(0, 0, 30, 20);
+  rect(0, 0, WIDTH, HEIGHT);
   popMatrix();
   noFill();
   popStyle();

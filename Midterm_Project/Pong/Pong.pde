@@ -19,7 +19,7 @@ Orbit orbit;
 int PADDLE_INSET = 8;
 
 // The background colour during play (brown)
-color backgroundColor = color(188, 111, 43);
+color backgroundColor = color(150);
 
 
 // setup()
@@ -62,6 +62,8 @@ void draw() {
   // Check if the ball has collided with either paddle
   ball.collide(leftPaddle);
   ball.collide(rightPaddle);
+  //Checks if the ball has collided with the orbit paddle
+  ball.collideOrbit(orbit);
 
   // Check if the ball has gone off the screen
   if (ball.isOffScreen()) {
