@@ -122,10 +122,13 @@ class Ball {
 
   void display() {
     // Set up the appearance of the ball (no stroke, a fill, and rectMode as CENTER)
-    noStroke();
+    pushStyle();
+    //noStroke();
+    strokeWeight(1);
     fill(ballColor);
+    popStyle();
     rectMode(CENTER);
-    //This applies the noise movement on the Y axis of the ball
+    //This applies the noise movement on the Y axis 
     yoff = yoff +.01; 
     int n = int(noise(yoff)*height);
     print(n);

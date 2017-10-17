@@ -65,12 +65,16 @@ class Paddle {
   
   void display() {
     // Set display properties
-    noStroke();
-    fill(paddleColor);
+    //noStroke();
+    //fill(paddleColor);
+    pushStyle();
+    noFill();
     rectMode(CENTER);
+    strokeWeight(1);
     
     // Draw the paddle as a rectangle
     rect(x, y, WIDTH, HEIGHT);
+    popStyle();
   }
 
   // keyPressed()
