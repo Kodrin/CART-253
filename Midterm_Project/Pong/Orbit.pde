@@ -5,9 +5,7 @@ float val;
 //The speed your object moves at along the orbit
 float speed = 0.05;
 
-
 void update(){
-  background(100);
   
   //Calculate x and y as values between -1 and 1
   float x = sin(val);
@@ -21,9 +19,14 @@ void update(){
   x+= width/2;
   y+= height/2;
   
-  //Draw your object!
+  //draws the paddle with a specific style and roation applied to it
   pushStyle();
-  ellipse(x, y, 20, 20);
+  rectMode(CENTER);
+  pushMatrix();
+  translate(x, y);
+  rotate(-val);
+  rect(0, 0, 30, 20);
+  popMatrix();
   noFill();
   popStyle();
   
