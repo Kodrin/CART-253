@@ -13,6 +13,7 @@
 Paddle leftPaddle;
 Paddle rightPaddle;
 Ball ball;
+Orbit orbit;
 
 // The distance from the edge of the window a paddle should be
 int PADDLE_INSET = 8;
@@ -39,6 +40,9 @@ void setup() {
 
   // Create the ball at the centre of the screen
   ball = new Ball(width/2, height/2);
+  
+  // create orbital movement at the centre of the screen
+  orbit = new Orbit();
 }
 
 // draw()
@@ -69,6 +73,10 @@ void draw() {
   leftPaddle.display();
   rightPaddle.display();
   ball.display();
+  
+  //display the orbital paddle and its contour ellipse
+  orbit.update();
+  orbit.contourEllipse();
 }
 
 // keyPressed()
