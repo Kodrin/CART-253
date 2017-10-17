@@ -25,7 +25,12 @@ void draw(){
   
   //Draw your object!
   pushStyle();
-  ellipse(x, y, 20, 20);
+  rectMode(CENTER);
+  pushMatrix();
+  translate(x, y);
+  rotate(-val);
+  rect(0, 0, 30, 20);
+  popMatrix();
   noFill();
   popStyle();
   
