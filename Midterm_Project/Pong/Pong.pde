@@ -14,6 +14,7 @@ Paddle leftPaddle;
 Paddle rightPaddle;
 Ball ball;
 Orbit orbit;
+Score score;
 
 // The distance from the edge of the window a paddle should be
 int PADDLE_INSET = 8;
@@ -43,6 +44,9 @@ void setup() {
   
   // create orbital movement at the centre of the screen
   orbit = new Orbit();
+  
+  // create the score tracker at the center of the screen
+  score = new Score();
 }
 
 // draw()
