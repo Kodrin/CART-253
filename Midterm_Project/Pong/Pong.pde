@@ -70,10 +70,10 @@ void draw() {
   ball.collideOrbit(orbit);
 
   // Check if the ball has gone off the screen
-  if (ball.isOffScreen()) {
+  /*if (ball.isOffScreen()) {
     // If it has, reset the ball
     ball.reset();
-  }
+  }*/
 
   // Display the paddles and the ball
   //leftPaddle.display();
@@ -83,6 +83,9 @@ void draw() {
   //display the orbital paddle and its contour ellipse
   orbit.update();
   orbit.contourEllipse();
+  
+  //calls the function from the score script
+  score.update();
 }
 
 // keyPressed()
