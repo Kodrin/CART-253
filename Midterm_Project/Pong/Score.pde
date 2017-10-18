@@ -14,14 +14,23 @@ void update (){
   ellipse(width/2,height/2, WIDTH, HEIGHT);
   //fill(fillScoreColor);
   popStyle();
-  
+  //increases the size of the center ellipse and decreases the count each time the ball resets
   if (ball.isOffScreen()) {
     // If it has, reset the ball
     ball.reset();
-    count = count + 1;
+    count = count - 1;
     WIDTH = WIDTH + increment;
     HEIGHT = HEIGHT + increment;
     print(count);
+  }
+  // WINNING CONDITION pauses the game when the winning count is reached
+  if (count >=1) {
+    frameRate(0);
+  }
+  
+  //LOSING CONDITION pauses the game when the center ellipse reaches the countour ellipse
+  if(orbit.EWIDTH == WIDTH){
+    frameRate(0);
   }
 }
 

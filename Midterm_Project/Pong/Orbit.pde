@@ -9,8 +9,8 @@ float y;
 int WIDTH = 90;
 int HEIGHT = 30;
 // contour ellipse HEIGHT and WIDTH
-int EWIDTH = 500;
-int EHEIGHT = 500;
+int EWIDTH = 501;
+int EHEIGHT = 501;
 
 
 void update(){

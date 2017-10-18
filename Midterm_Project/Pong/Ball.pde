@@ -135,6 +135,8 @@ class Ball {
       }
       // And make it bounce
       vx = -vx;
+      // Whenver the orbital paddle hits the ball, the score count increases by 1
+      score.count = score.count + 1;
       //checks to see if the score tracker ellipse width & width are no equal to 1 before shrinking it
       if (score.WIDTH != 1 || score.HEIGHT != 1){
       score.WIDTH = score.WIDTH - score.increment;
