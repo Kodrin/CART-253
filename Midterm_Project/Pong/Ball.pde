@@ -135,7 +135,12 @@ class Ball {
       }
       // And make it bounce
       vx = -vx;
+      //checks to see if the score tracker ellipse width & width are no equal to 1 before shrinking it
+      if (score.WIDTH != 1 || score.HEIGHT != 1){
+      score.WIDTH = score.WIDTH - score.increment;
+      score.HEIGHT = score.HEIGHT - score.increment;
       print("check!");
+      }
     }
   }
   // display()
