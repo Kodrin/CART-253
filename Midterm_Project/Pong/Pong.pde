@@ -35,8 +35,8 @@ void setup() {
   // Also pass through the two keys used to control 'up' and 'down' respectively
   // NOTE: On a mac you can run into trouble if you use keys that create that popup of
   // different accented characters in text editors (so avoid those if you're changing this)
-  leftPaddle = new Paddle(PADDLE_INSET, height/2, '1', 'q');
-  rightPaddle = new Paddle(width - PADDLE_INSET, height/2, '0', 'p');
+  //leftPaddle = new Paddle(PADDLE_INSET, height/2, '1', 'q');
+  //rightPaddle = new Paddle(width - PADDLE_INSET, height/2, '0', 'p');
 
   // Create the ball at the centre of the screen
   ball = new Ball(width/2, height/2);
@@ -55,13 +55,13 @@ void draw() {
   background(backgroundColor);
 
   // Update the paddles and ball by calling their update methods
-  leftPaddle.update();
-  rightPaddle.update();
+  //leftPaddle.update();
+  //rightPaddle.update();
   ball.update();
 
   // Check if the ball has collided with either paddle
-  ball.collide(leftPaddle);
-  ball.collide(rightPaddle);
+  //ball.collide(leftPaddle);
+  //ball.collide(rightPaddle);
   //Checks if the ball has collided with the orbit paddle
   ball.collideOrbit(orbit);
 
@@ -72,8 +72,8 @@ void draw() {
   }
 
   // Display the paddles and the ball
-  leftPaddle.display();
-  rightPaddle.display();
+  //leftPaddle.display();
+  //rightPaddle.display();
   ball.display();
   
   //display the orbital paddle and its contour ellipse
@@ -87,18 +87,18 @@ void draw() {
 // so when the keypress is detected in the main program we need to
 // tell the paddles
 
-void keyPressed() {
+/*void keyPressed() {
   // Just call both paddles' own keyPressed methods
   leftPaddle.keyPressed();
   rightPaddle.keyPressed();
-}
+}*/
 
 // keyReleased()
 //
 // As for keyPressed, except for released!
 
-void keyReleased() {
+/*void keyReleased() {
   // Call both paddles' keyReleased methods
   leftPaddle.keyReleased();
   rightPaddle.keyReleased();
-}
+}*/
