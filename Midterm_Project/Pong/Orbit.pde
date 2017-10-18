@@ -8,6 +8,9 @@ float x;
 float y;
 int WIDTH = 90;
 int HEIGHT = 30;
+// contour ellipse HEIGHT and WIDTH
+int EWIDTH = 500;
+int EHEIGHT = 500;
 
 
 void update(){
@@ -48,9 +51,10 @@ void update(){
 }
 
 void contourEllipse() {
-  ellipse(width/2, height/2, 500, 500);
-  noFill();
 
+  ellipse(width/2, height/2, EWIDTH, EHEIGHT);
+  noFill();
   strokeWeight(1);
+
 }
 }
