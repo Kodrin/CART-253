@@ -25,11 +25,17 @@ void update (){
   }
   // WINNING CONDITION pauses the game when the winning count is reached
   if (count >=1) {
+    textSize(64);
+    textAlign(CENTER, CENTER);
+    text("YOU WIN", width/2, height/2); 
     frameRate(0);
   }
   
   //LOSING CONDITION pauses the game when the center ellipse reaches the countour ellipse
   if(orbit.EWIDTH == WIDTH){
+    textSize(64);
+    textAlign(CENTER, CENTER);
+    text("YOU LOSE", width/2, height/2);
     frameRate(0);
   }
 }
