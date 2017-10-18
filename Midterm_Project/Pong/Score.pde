@@ -1,8 +1,8 @@
 class Score {
   // width and height variables for the ellipse score tracker
-  int WIDTH;
-  int HEIGHT;
-  color fillScoreColor = color(100);
+  int WIDTH = 1;
+  int HEIGHT = 1;
+  color fillScoreColor = color(200);
   
   //count keeps count of how many times the ball reset
   int count;
@@ -12,7 +12,7 @@ class Score {
 void update (){
   pushStyle();
   ellipse(width/2,height/2, WIDTH, HEIGHT);
-  fill(fillScoreColor);
+  //fill(fillScoreColor);
   popStyle();
   
   if (ball.isOffScreen()) {
@@ -24,7 +24,5 @@ void update (){
     print(count);
   }
 }
-
-
 
 }
