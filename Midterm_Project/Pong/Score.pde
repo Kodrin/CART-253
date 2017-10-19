@@ -24,7 +24,7 @@ void update (){
     print(count);
   }
   // WINNING CONDITION pauses the game when the winning count is reached
-  if (count >=1) {
+  if (count >=5) {
     textSize(64);
     textAlign(CENTER, CENTER);
     text("YOU WIN", width/2, height/2); 

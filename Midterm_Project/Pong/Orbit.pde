@@ -27,7 +27,7 @@ void update(){
   x+= width/2;
   y+= height/2;
   
-  //draws the paddle with a specific style and roation applied to it
+  //draws the paddle with a specific style and roation applied to it (around the center ellipse pivot point)
   pushStyle();
   rectMode(CENTER);
   pushMatrix();

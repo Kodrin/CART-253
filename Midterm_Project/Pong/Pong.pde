@@ -84,7 +84,7 @@ void draw() {
   orbit.update();
   orbit.contourEllipse();
   
-  //calls the function from the score script
+  //keeps the score count and displays when you win or lose
   score.update();
 }
 

@@ -94,7 +94,7 @@ class Ball {
   // If it is, it makes the ball bounce away from the paddle by reversing its
   // x velocity
 
-  void collide(Paddle paddle) {
+  /*void collide(Paddle paddle) {
     // Calculate possible overlaps with the paddle side by side
     boolean insideLeft = (x + SIZE/2 > paddle.x - paddle.WIDTH/2);
     boolean insideRight = (x - SIZE/2 < paddle.x + paddle.WIDTH/2);
@@ -114,7 +114,7 @@ class Ball {
       // And make it bounce
       vx = -vx;
     }
-  }
+  }*/
 // collision for orbit paddle
   void collideOrbit(Orbit orbit) {
     // Calculate possible overlaps with the paddle side by side
@@ -157,7 +157,7 @@ class Ball {
     fill(ballColor);
     popStyle();
     //rectMode(CENTER);
-    //This applies the noise movement on the Y axis 
+    //This applies the noise movement to the ball on the Y axis 
     yoff = yoff +.01; 
     int n = int(noise(yoff)*height);
     //print(n);
