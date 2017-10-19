@@ -1,3 +1,5 @@
+// This class will track the score by representing an increasing ellipse in the center each time the ball resets
+// It also sets the winning and losing conditions
 class Score {
   // width and height variables for the ellipse score tracker
   int WIDTH = 1;
@@ -19,11 +21,13 @@ void update (){
     // If it has, reset the ball
     ball.reset();
     count = count - 1;
+    if (count <= 0){
     WIDTH = WIDTH + increment;
     HEIGHT = HEIGHT + increment;
+    }
     print(count);
   }
-  // WINNING CONDITION pauses the game when the winning count is reached
+  // WINNING CONDITION pauses the game when the winning count of >= 5 is reached
   if (count >=5) {
     textSize(64);
     textAlign(CENTER, CENTER);
@@ -37,6 +41,12 @@ void update (){
     textAlign(CENTER, CENTER);
     text("YOU LOSE", width/2, height/2);
     frameRate(0);
+  }
+  //When the count is positive, it displays on the screen
+  if (count > 0) {
+    textSize(64);
+    textAlign(CENTER, CENTER);
+    text(count, width/2, height/2);
   }
 }
 

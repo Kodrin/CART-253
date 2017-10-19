@@ -1,3 +1,7 @@
+// Orbit class creates the orbit path that the paddle follows/
+//it also allows you to control the paddle with the push of any key
+// it draw the contour ellipse as well
+
 class Orbit{ 
 //This value specifies where in the ellipse orbit
 float val;

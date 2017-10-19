@@ -1,13 +1,15 @@
-// Pong
+//Lonely Singleplayer Pong 1.0
 //
-// A simple version of Pong using object-oriented programming.
-// Allows to people to bounce a ball back and forth between
-// two paddles that they control.
-//
-// No scoring. (Yet!)
-// No score display. (Yet!)
-// Pretty ugly. (Now!)
-// Only two paddles. (So far!)
+//The player plays pong with himself with a paddle that orbits
+//on an elliptical path. The player must keep the ball in the ellipse.
+//The player controls the paddle by pressing any key on the keyboard. 
+//The paddle will always be in motion. Press any key to make the paddle go in the 
+//opposite direction.
+// 
+// The score is tracked through another ellipse in the center that grows incrementally
+// each time the ball resets. DONT LET THE OTHER ELLIPSE GROW TO THE SAME SIZE AS THE
+// ORIGINAL ELLIPSE. IF you do, you lose the game.
+
 
 // Global variables for the paddles and the ball
 Paddle leftPaddle;
@@ -19,7 +21,7 @@ Score score;
 // The distance from the edge of the window a paddle should be
 int PADDLE_INSET = 8;
 
-// The background colour during play (brown)
+// The background colour during play (grey)
 color backgroundColor = color(150);
 
 
