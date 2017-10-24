@@ -21,6 +21,8 @@ void setup() {
   frameRate(10);
 
   // QUESTION: What does this for loop do?
+  //ANSWER; It creates new griddies with given parameters and random XY coordinates 
+  // until the array of 100 griddies is filled. it loops the array to easily create a lot of griddies at once. 
   for (int i = 0; i < griddies.length; i++) {
     int x = floor(random(0, width/gridSize));
     int y = floor(random(0, height/gridSize));
