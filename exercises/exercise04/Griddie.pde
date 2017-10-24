@@ -35,6 +35,7 @@ class Griddie {
   void update() {
     
     // QUESTION: What is this if-statement for?
+    //ANSWER; This if statement will return to the beginning of the function is the energy is equal to 0
     
     if (energy == 0) {
       return;
