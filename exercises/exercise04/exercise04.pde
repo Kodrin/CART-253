@@ -8,7 +8,7 @@
 
 // The size of a single grid element
 int gridSize = 20;
-// An array storing all the griddies
+// An array storing all the griddies and munchers
 Griddie[] griddies = new Griddie[100];
 Munchers[] munchers = new Munchers[20];
 
@@ -29,7 +29,7 @@ void setup() {
     int y = floor(random(0, height/gridSize));
     griddies[i] = new Griddie(x * gridSize, y * gridSize, gridSize);
   }
-  
+  // CHANGED until the array of 20 munchers is filled. it loops the array to easily create a lot of munchers at once. 
   for (int i = 0; i < munchers.length; i++) {
     int x = floor(random(0, width/gridSize));
     int y = floor(random(0, height/gridSize));
@@ -66,12 +66,14 @@ void draw() {
     griddies[i].display();
   }
   
+  //CHANGED we will loop through the munchers once to call their update and display functions
   for (int i = 0; i < munchers.length; i++) {
 
     // Update the griddies
     munchers[i].update();
 
-    // Now go through all the griddies a second time...
+    // CHANGED this will loop through the griddies to call the eat function which will 
+    // check the collision between gridders and munchers every frame to see if munchers can eat griddies.
     for (int j = 0; j < griddies.length; j++) {
       // QUESTION: What is this if-statement for?
       //ANSWER; This if statement will check that the current griddie is not the same as the other griddie
@@ -81,10 +83,10 @@ void draw() {
       //  // if yes, the griddies will collide with one another.
       //  griddies[i].collide(griddies[j]);
       //}
-      munchers[i].collide(griddies[j]);
+      munchers[i].eat(griddies[j]);
     }
     
-    // Display the griddies
+    // CHANGED this will display the munchers
     munchers[i].display();
   }
 }

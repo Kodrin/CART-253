@@ -2,7 +2,6 @@ class Munchers {
   // Limits for energy level and gains/losses
   int maxEnergy = 255;
   int moveEnergy = -1;
-  int collideEnergy = 10;
   
   // Position, size, energy, and fill color
   int x;
@@ -44,13 +43,10 @@ class Munchers {
 
   }
 
-  
-  void collide(Griddie other) {
+  //CHANGED if the munchers overlap with the griddies, they will 'eat' them by reducing their energy to 0
+  void eat(Griddie other) {
     if (x == other.x && y == other.y) {
-      // Increase this Griddie's energy
       other.energy = 0;
-      // Constrain the energy level to be within bounds
-      //energy = constrain(energy,0,maxEnergy);
     }
   }
 
