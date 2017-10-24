@@ -53,7 +53,7 @@ void draw() {
     // Now go through all the griddies a second time...
     for (int j = 0; j < griddies.length; j++) {
       // QUESTION: What is this if-statement for?
-      //ANSWER; This if statement will check that the current griddie is not the same as the other griddie
+      //ANSWER; This if statement will prevent the current griddie from detecting its own collision
       if (j != i) {
         // QUESTION: What does this line check?
         // ANSWER; This line checks to see if the current griddie is overlapping with the other griddie.
@@ -75,14 +75,6 @@ void draw() {
     // CHANGED this will loop through the griddies to call the eat function which will 
     // check the collision between gridders and munchers every frame to see if munchers can eat griddies.
     for (int j = 0; j < griddies.length; j++) {
-      // QUESTION: What is this if-statement for?
-      //ANSWER; This if statement will check that the current griddie is not the same as the other griddie
-      //if (j != i) {
-      //  // QUESTION: What does this line check?
-      //  // ANSWER; This line checks to see if the current griddie is overlapping with the other griddie.
-      //  // if yes, the griddies will collide with one another.
-      //  griddies[i].collide(griddies[j]);
-      //}
       munchers[i].eat(griddies[j]);
     }
     
