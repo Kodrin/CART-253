@@ -1,4 +1,4 @@
-// Griddies
+// Griddies STARTED
 // by Pippin Barr
 // MODIFIED BY: 
 //
