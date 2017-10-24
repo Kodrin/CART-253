@@ -10,7 +10,7 @@
 int gridSize = 20;
 // An array storing all the griddies
 Griddie[] griddies = new Griddie[100];
-Munchers[] munchers = new Munchers[5];
+Munchers[] munchers = new Munchers[20];
 
 // setup()
 //
@@ -72,7 +72,7 @@ void draw() {
     munchers[i].update();
 
     // Now go through all the griddies a second time...
-    for (int j = 0; j < munchers.length; j++) {
+    for (int j = 0; j < griddies.length; j++) {
       // QUESTION: What is this if-statement for?
       //ANSWER; This if statement will check that the current griddie is not the same as the other griddie
       //if (j != i) {
@@ -81,6 +81,7 @@ void draw() {
       //  // if yes, the griddies will collide with one another.
       //  griddies[i].collide(griddies[j]);
       //}
+      munchers[i].collide(griddies[j]);
     }
     
     // Display the griddies
