@@ -5,7 +5,7 @@ class Particleattach {
   float x = (random(0,width));
   float y = (random(0,height));
   int size = floor(random(5,26));
-  color fill = color(255,255,0);
+  color fill = color(0);
   float range = 200;
   
   //created velocity, gravity and noise offset variables
