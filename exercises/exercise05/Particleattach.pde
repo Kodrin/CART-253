@@ -1,27 +1,22 @@
-
-//created a class for the main particles
-class Particlenorm {
+//created a class for the attach particles
+class Particleattach {
   
   //set the x,y and size properties to random values
-  int x = floor(random(0,width));
-  int y = floor(random(0,height));
-  int size = floor(random(5,32));
-  color fill = color(255);
+  float x = (random(0,width));
+  float y = (random(0,height));
+  int size = floor(random(5,16));
+  color fill = color(255,255,0);
   
   //created velocity, gravity and bounce variables
   float vx = 0;
   float vy = 0;
-  float gravity = random(0,0.008);
-  float bounce = -1;
-  float time = 0.8;
+  float xoff = 0.0;
 
   void update(){
     
     // the velocity of the particle is affecte by the gravity
     //vx += gravity;
     //x += vx;
-    
-    vy += gravity;
     y += vy;
   
     //if the particle hits the bottom of the screen, it bounces back off
@@ -32,7 +27,7 @@ class Particlenorm {
     }  
     
     if(y > height - size/2 || y < 0 - size/2){
-      vy*= bounce;
+      //vy*= bounce;
       //vy*= time;
       //vy = -vy;
     }  
@@ -42,6 +37,9 @@ class Particlenorm {
     // these functions draw the ellipse according to previous properties 
     fill(fill);
     noStroke();
-    ellipse(x,y,size,size);
+    
+    xoff = xoff + .01;
+    float n = noise(xoff) * width;
+    ellipse(x = n, y,size,size);
   }
 }
