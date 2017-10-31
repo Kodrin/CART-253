@@ -3,8 +3,8 @@
 class Particlenorm {
   
   //set the x,y and size properties to random values
-  int x = floor(random(0,width));
-  int y = floor(random(0,height));
+  float x = (random(0,width));
+  float y = (random(0,height));
   int size = floor(random(5,32));
   color fill = color(255);
   
@@ -41,7 +41,7 @@ class Particlenorm {
   void display(){
     // these functions draw the ellipse according to previous properties 
     fill(fill);
-    noStroke();
+    //noStroke();
     ellipse(x,y,size,size);
   }
 }

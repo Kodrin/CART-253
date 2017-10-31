@@ -6,6 +6,7 @@ class Particleattach {
   float y = (random(0,height));
   int size = floor(random(5,16));
   color fill = color(255,255,0);
+  float range = 200;
   
   //created velocity, gravity and bounce variables
   float vx = 0;
@@ -13,12 +14,6 @@ class Particleattach {
   float xoff = 0.0;
 
   void update(){
-    
-    // the velocity of the particle is affecte by the gravity
-    //vx += gravity;
-    //x += vx;
-    y += vy;
-  
     //if the particle hits the bottom of the screen, it bounces back off
     if(x > width - size/2 || x < 0 - size/2){
       //vx*= bounce;
@@ -36,10 +31,16 @@ class Particleattach {
   void display(){
     // these functions draw the ellipse according to previous properties 
     fill(fill);
-    noStroke();
+    //noStroke();
     
     xoff = xoff + .01;
     float n = noise(xoff) * width;
     ellipse(x = n, y,size,size);
   }
+  
+    void nextToNormal ( Particlenorm other) {
+      if(dist(x,y, other.x, other.y) < range) {
+        line(x,y, other.x, other.y);
+      }
+    }
 }

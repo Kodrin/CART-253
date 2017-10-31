@@ -30,5 +30,9 @@ void draw() {
   for (int i = 0; i < particleattach.length; i++){
     particleattach[i].update();
     particleattach[i].display();
+    
+    for (int j = 0; j < particlenorm.length; j++) {
+      particleattach[i].nextToNormal(particlenorm[j]);
+    }
   }
 }
