@@ -7,7 +7,7 @@ Particleattach[] particleattach = new Particleattach[5];
 void setup() {
   size(1920,1080);
   
-  //loops through the array in order to instantiate the particles
+  //loops through the array in order to instantiate the norm and attach particles
   for (int i = 0; i < particlenorm.length; i++){
     particlenorm[i] = new Particlenorm();
   }
@@ -31,6 +31,7 @@ void draw() {
     particleattach[i].update();
     particleattach[i].display();
     
+    //loops again to call the nextToNormal function which draws a line between normal and attach particles
     for (int j = 0; j < particlenorm.length; j++) {
       particleattach[i].nextToNormal(particlenorm[j]);
     }

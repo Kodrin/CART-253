@@ -17,19 +17,18 @@ class Particlenorm {
 
   void update(){
     
-    // the velocity of the particle is affecte by the gravity
+    // the velocity of the particle is affected by the gravity
     //vx += gravity;
-    //x += vx;
-    
+    //x += vx;   
     vy += gravity;
     y += vy;
   
     //if the particle hits the bottom of the screen, it bounces back off
-    if(x > width - size/2 || x < 0 - size/2){
-      //vx*= bounce;
-      //vx*= time;
-      //vx = -vx;
-    }  
+    //if(x > width - size/2 || x < 0 - size/2){
+    //  //vx*= bounce;
+    //  //vx*= time;
+    //  //vx = -vx;
+    //}  
     
     if(y > height - size/2 || y < 0 - size/2){
       vy*= bounce;
