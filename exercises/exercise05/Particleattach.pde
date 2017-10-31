@@ -10,10 +10,12 @@ class Particleattach {
   
   //created velocity, gravity and bounce variables
   float vx = 0;
-  float vy = 0;
-  float xoff = 0.0;
+  float vy = random(-1,1);
+  float xoff = random(0,100);
 
   void update(){
+    
+    y += vy;
     //if the particle hits the bottom of the screen, it bounces back off
     if(x > width - size/2 || x < 0 - size/2){
       //vx*= bounce;
@@ -25,6 +27,7 @@ class Particleattach {
       //vy*= bounce;
       //vy*= time;
       //vy = -vy;
+      vy = -vy;
     }  
   }
   

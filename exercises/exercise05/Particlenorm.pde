@@ -5,7 +5,7 @@ class Particlenorm {
   //set the x,y and size properties to random values
   float x = (random(0,width));
   float y = (random(0,height));
-  int size = floor(random(5,32));
+  int size = floor(random(1,32));
   color fill = color(255);
   
   //created velocity, gravity and bounce variables
@@ -40,8 +40,10 @@ class Particlenorm {
   
   void display(){
     // these functions draw the ellipse according to previous properties 
-    fill(fill);
+    pushStyle();
+    noFill();
     //noStroke();
     ellipse(x,y,size,size);
+    popStyle();
   }
 }

@@ -1,11 +1,11 @@
 // Particle system with an array
 
 //calls the  particlenorm class to index particles into an array
-Particlenorm[] particlenorm = new Particlenorm[40];
-Particleattach[] particleattach = new Particleattach[2];
+Particlenorm[] particlenorm = new Particlenorm[500];
+Particleattach[] particleattach = new Particleattach[5];
 
 void setup() {
-  size(640,480);
+  size(1920,1080);
   
   //loops through the array in order to instantiate the particles
   for (int i = 0; i < particlenorm.length; i++){
@@ -19,7 +19,7 @@ void setup() {
 
 
 void draw() {
-  background(50);
+  background(230,230,230);
   
   //loops through the array again to call the update and display function of the particles
   for (int i = 0; i < particlenorm.length; i++){
