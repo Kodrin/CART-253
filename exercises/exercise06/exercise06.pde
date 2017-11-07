@@ -105,4 +105,20 @@ void handleVideoInput() {
       }
     }
   }
+  //CHANGED added a black and white filter to the video feed for an easier contrast to detect pixels
+  for ( int x = 1; x < video.width; x++ ) {
+    for ( int y = 0; y < video.height; y++ ) {
+      float threshold = 180;
+      int loc = x + y * video.width;
+      color pixel = video.pixels[loc];
+      int leftLoc = (x - 1) + y * video.width;
+      color leftPixel = video.pixels[leftLoc];
+      float diff = abs(brightness(pixel) -  brightness(leftPixel));
+      if ( diff > threshold ) {
+        video.pixels[loc] = color(255);
+      } else {
+        video.pixels[loc] = color(0);
+      }
+    }
+}
 }
