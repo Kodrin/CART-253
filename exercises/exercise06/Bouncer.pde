@@ -64,6 +64,17 @@ class Bouncer {
       // Bounce on the y-axis
       vy = -vy;
     }
+    
+    //CHANGED aded collision between the brightest pixels and the bouncers
+    if (x - size/2 < brightestPixel.x - bpSize/2) {
+      // Bounce on the x-axis
+      vx = -vx;
+    }
+    if (y - size/2 < brightestPixel.y - bpSize/2) {
+      // Bounce on the y-axis
+      vy = -vy;
+    }
+    
 
     // Make sure the Bouncer isn't off the edge
     x = constrain(x, size/2, width-size/2);

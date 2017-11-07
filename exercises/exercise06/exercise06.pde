@@ -16,6 +16,8 @@ PVector brightestPixel = new PVector(-1,-1);
 // An array of bouncers to play with
 Bouncer[] bouncers = new Bouncer[10];
 
+//created a size variable for the ellipse so i can reference it in the bouncer class
+int bpSize = 20;
 // setup()
 //
 // Creates the bouncers and starts the webcam
@@ -61,7 +63,7 @@ void draw() {
   fill(#ff0000);
   stroke(#ffff00);
   strokeWeight(10);
-  ellipse(brightestPixel.x,brightestPixel.y,20,20);
+  ellipse(brightestPixel.x,brightestPixel.y,bpSize,bpSize);
 }
 
 // handleVideoInput
@@ -120,5 +122,5 @@ void handleVideoInput() {
         video.pixels[loc] = color(0);
       }
     }
-}
+  }
 }
