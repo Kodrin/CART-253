@@ -4,11 +4,10 @@ AudioInput mic; // The class that lets us get at the microphone
 
 SketchLoops[] sketchloops = new SketchLoops[10];
 
-float amount = 100;
-float a = random(0,width);
-float b = random(0,height);
+float amount = 20;
 
 float level;
+float val;
 
 void setup() {
   size(800,800);
@@ -30,7 +29,9 @@ void draw() {
   rect(width/2, height/2, width * level, height * level);
   noFill();
   stroke(255);
-  bezier(a, b, 100, height/2 , 400, height/2 * level* amount, a, b);
+  
+  val = level * 1000;
+  println(val);
   
   for (int i = 0; i < sketchloops.length; i++){
     sketchloops[i].update();
