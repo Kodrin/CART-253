@@ -1,6 +1,6 @@
 class SketchLoops{
 
-float a = random(0,width);
+float a = random(200,600);
 float b = height/2;  
 
 float x1 = a + 10;
