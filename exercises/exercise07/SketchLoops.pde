@@ -3,10 +3,10 @@ class SketchLoops{
 float a = random(0,width);
 float b = height/2;  
 
-float x1 = random(0,width);
-float y1 = random(0,height);
-float x2 = random(0,width);
-float y2 = random(0,height);
+float x1 = a + 10;
+float y1 = b + 10;
+float x2 = x1+ 10;
+float y2 = y1+10;
 
 float xv = 1;
 float yv = 1;

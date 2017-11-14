@@ -2,7 +2,7 @@ import ddf.minim.*;
 Minim minim;
 AudioInput mic; // The class that lets us get at the microphone
 //creates an array of sketch loops
-SketchLoops[] sketchloops = new SketchLoops[10];
+SketchLoops[] sketchloops = new SketchLoops[20];
 
 float amount = 10;
 
