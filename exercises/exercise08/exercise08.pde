@@ -2,6 +2,8 @@
 //for each iteration of the fractal. I will attach this to the main part of my project
 //In particular, i will attach it to each white pixels in the frame
 
+//this code was built upon the base tree fractal template from processing
+
 
 //the theta assign a random rotation to each branch 
 float theta = random(0,PI/3);
