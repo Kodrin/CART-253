@@ -25,7 +25,7 @@ class Vehicle {
   
   void applyBehaviors(ArrayList<Vehicle> vehicles) {
      PVector separateForce = separate(vehicles);
-     PVector seekForce = seek(new PVector(mouseX,mouseY));
+     PVector seekForce = seek(new PVector(lerpX,lerpY));
      separateForce.mult(2);
      seekForce.mult(1);
      applyForce(separateForce);

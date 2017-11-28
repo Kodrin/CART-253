@@ -17,6 +17,9 @@ float lerpX = 0;
 float lerpY = 0;
 
 
+// A list of vehicles
+ArrayList<Vehicle> vehicles;
+
 void setup() {
   size(640, 360);
   String[] cameras = Capture.list();
@@ -25,6 +28,11 @@ void setup() {
   video.start();
   prev = createImage(640, 360, RGB);
   // Start off tracking for red
+  
+    vehicles = new ArrayList<Vehicle>();
+  for (int i = 0; i < 100; i++) {
+    vehicles.add(new Vehicle(random(width),random(height)));
+  }
 }
 
 
@@ -103,9 +111,21 @@ void draw() {
   //image(prev, 100, 0, 100, 100);
 
   //println(mouseX, threshold);
+  
+    for (Vehicle v : vehicles) {
+    // Path following and separation are worked on in this function
+    v.applyBehaviors(vehicles);
+    // Call the generic run method (update, borders, display, etc.)
+    v.update();
+    v.display();
+  }
 }
 
 float distSq(float x1, float y1, float z1, float x2, float y2, float z2) {
   float d = (x2-x1)*(x2-x1) + (y2-y1)*(y2-y1) +(z2-z1)*(z2-z1);
   return d;
+}
+
+void mouseDragged() {
+  vehicles.add(new Vehicle(mouseX,mouseY));
 }
