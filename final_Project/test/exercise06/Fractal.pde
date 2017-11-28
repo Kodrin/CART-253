@@ -1,3 +1,5 @@
+class Fractal{
+
 //This prototype will draw a tree fractal with a random rotation on the branches
 //for each iteration of the fractal. I will attach this to the main part of my project
 //In particular, i will attach it to each white pixels in the frame
@@ -11,7 +13,7 @@ float theta = random(0,PI/3);
 void update() {
   stroke(255);
   // Draw a line 120 pixels
-  line(0,0,0,-12);
+  line(0,0,0,-120);
   // Move to the end of that line
   translate(0,-12);
   // Start the recursive branching!
@@ -44,4 +46,5 @@ void branch(float h) {
     branch(h);
     popMatrix();
   }
+}
 }

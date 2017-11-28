@@ -7,6 +7,7 @@ import processing.video.*;
 
 // The capture object for reading from the webcam
 Capture video;
+Fractal fractals = new Fractal();
 
 // A PVector allows us to store an x and y location in a single object
 // When we create it we give it the starting x and y (which I'm setting to -1, -1
@@ -40,13 +41,11 @@ void draw() {
 
   // Draw the video frame to the screen
   image(video, 0, 0);
-  
-  
-  // For now we just draw a crappy ellipse at the brightest pixel
-  fill(#ff0000);
-  stroke(#ffff00);
-  strokeWeight(10);
-  ellipse(brightestPixel.x,brightestPixel.y,bpSize,bpSize);
+  //// For now we just draw a crappy ellipse at the brightest pixel
+  //fill(#ff0000);
+  //stroke(#ffff00);
+  //strokeWeight(10);
+  //ellipse(brightestPixel.x,brightestPixel.y,bpSize,bpSize);
 }
 
 // handleVideoInput
@@ -66,7 +65,7 @@ void handleVideoInput() {
 
   // Start with a very low "record" for the brightest pixel
   // so that we'll definitely find something better
-  float brightnessRecord = 0;
+  //float brightnessRecord = 0;
 
   // Go through every pixel in the grid of pixels made by this
   // frame of video
@@ -77,16 +76,15 @@ void handleVideoInput() {
       // Get the color of the pixel we're looking at
       color pixelColor = video.pixels[loc];
       // Get the brightness of the pixel we're looking at
-      float pixelBrightness = brightness(pixelColor);
+      float pixelBrightness = pixelColor;
       // Check if this pixel is the brighest we've seen so far
-      if (pixelBrightness > brightnessRecord) {
-        // If it is, change the record value
-        brightnessRecord = pixelBrightness;
+      if (pixelBrightness > 0) {
+        // If it is, []change the record value
         // Remember where this pixel is in the the grid of pixels
         // (and therefore on the screen) by setting the PVector
         // brightestPixel's x and y properties.
-        brightestPixel.x = x;
-        brightestPixel.y = y;
+        //brightestPixel.x = x;
+        //brightestPixel.y = y;
       }
     }
   }
@@ -106,4 +104,4 @@ void handleVideoInput() {
       }
     }
   }
-}
+  }
