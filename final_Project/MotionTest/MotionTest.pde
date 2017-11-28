@@ -1,8 +1,3 @@
-// Daniel Shiffman
-// http://codingtra.in
-// http://patreon.com/codingtrain
-// Code for: https://youtu.be/QLHMtE5XsMs
-
 import processing.video.*;
 
 Capture video;
@@ -127,5 +122,5 @@ float distSq(float x1, float y1, float z1, float x2, float y2, float z2) {
 }
 
 void mouseDragged() {
-  vehicles.add(new Vehicle(mouseX,mouseY));
+  vehicles.add(new Vehicle(lerpX,lerpY));
 }
