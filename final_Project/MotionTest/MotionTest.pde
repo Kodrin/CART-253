@@ -1,7 +1,10 @@
 import processing.video.*;
 import processing.sound.*;
+import ddf.minim.*;
+Minim minim;
+AudioInput mic; 
 
-
+//MOTION CAP VARIABLE
 Capture video;
 PImage prev;
 
@@ -12,22 +15,28 @@ float motionY = 0;
 
 float lerpX = 0;
 float lerpY = 0;
-
+//AUDIO VAR
+float level;
 
 // A list of vehicles
 ArrayList<Vehicle> vehicles;
 
 void setup() {
+  //initiate video
   size(640, 360);
   String[] cameras = Capture.list();
   printArray(cameras);
   video = new Capture(this, cameras[3]);
   video.start();
   prev = createImage(640, 360, RGB);
-  // Start off tracking for red
+  //initiate audio
+  minim = new Minim(this);
+  // We use minim.getLineIn() to get access to the microphone data
+  mic = minim.getLineIn();
   
+  // initiates the vehicles through a loop
     vehicles = new ArrayList<Vehicle>();
-  for (int i = 0; i < 100; i++) {
+    for (int i = 0; i < 100; i++) {
     vehicles.add(new Vehicle(random(width),random(height)));
   }
 }
@@ -116,6 +125,12 @@ void draw() {
     v.update();
     v.display();
   }
+  
+  //AUDIO UPDATE
+  // Gets the current level (volume) going into the microphone
+  level = mic.mix.level();
+  
+  ellipse(width/2,height/2,50,50);
 }
 
 float distSq(float x1, float y1, float z1, float x2, float y2, float z2) {
