@@ -1,11 +1,13 @@
 class VoiceBug {
-
-void update (){
-
+  float x;
+  float y;
+VoiceBug() {
+    x= width/2;
 }
-void display (){
+void update (){
+   val = level * 100;
    pushStyle();
-   rect(0,0,10,10);
+   rect(x,height - val,10,10);
    fill(255,20,20);
    rectMode(CENTER);
    popStyle();
