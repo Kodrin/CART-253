@@ -1,4 +1,6 @@
 import processing.video.*;
+import processing.sound.*;
+
 
 Capture video;
 PImage prev;
