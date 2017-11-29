@@ -1,0 +1,7 @@
+class Goal {
+
+void update(){
+
+}
+
+}

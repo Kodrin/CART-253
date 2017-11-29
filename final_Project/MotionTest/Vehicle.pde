@@ -92,11 +92,13 @@ class Vehicle {
   }
 
   void display() {
+    pushMatrix();
+    pushStyle();
     fill(175);
     stroke(0);
-    pushMatrix();
     translate(position.x, position.y);
     ellipse(0, 0, r, r);
+    popStyle();
     popMatrix();
   }
 

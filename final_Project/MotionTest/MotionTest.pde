@@ -112,11 +112,12 @@ void draw() {
   lerpX = lerp(lerpX, motionX, 0.1); 
   lerpY = lerp(lerpY, motionY, 0.1); 
   
+  pushStyle();
   fill(255, 0, 255);
   strokeWeight(2.0);
   stroke(0);
   ellipse(lerpX, lerpY, 36, 36);
-
+  popStyle();
   //image(video, 0, 0, 100, 100);
   //image(prev, 100, 0, 100, 100);
 
