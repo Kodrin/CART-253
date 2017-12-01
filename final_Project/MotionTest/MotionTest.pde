@@ -28,7 +28,7 @@ void setup() {
   size(640, 360);
   String[] cameras = Capture.list();
   printArray(cameras);
-  video = new Capture(this, cameras[3]);
+  video = new Capture(this, 640, 360);
   video.start();
   prev = createImage(640, 360, RGB);
   //initiate audio
