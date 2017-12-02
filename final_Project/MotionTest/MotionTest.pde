@@ -30,7 +30,7 @@ void setup() {
   printArray(cameras);
   video = new Capture(this, 640, 360);
   video.start();
-  prev = createImage(640, 360, RGB);
+  prev = createImage(video.width, video.height, RGB);
   //initiate audio
   minim = new Minim(this);
   // We use minim.getLineIn() to get access to the microphone data
