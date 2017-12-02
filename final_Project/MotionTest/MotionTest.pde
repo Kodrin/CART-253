@@ -93,7 +93,7 @@ void draw() {
         avgX += x;
         avgY += y;
         count++;
-        pixels[loc] = color(255);
+        pixels[loc] = color(255,255,0);
       } else {
         pixels[loc] = color(0);
       }
