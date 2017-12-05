@@ -25,10 +25,10 @@ ArrayList<Vehicle> vehicles;
 
 void setup() {
   //initiate video
-  size(640, 360);
+  size(1280, 720);
   String[] cameras = Capture.list();
   printArray(cameras);
-  video = new Capture(this, 640, 360);
+  video = new Capture(this, 1280, 720);
   video.start();
   prev = createImage(video.width, video.height, RGB);
   //initiate audio
@@ -42,11 +42,7 @@ void setup() {
     vehicles.add(new Vehicle(random(width),random(height)));
   }
   
-  voicebug = new VoiceBug();
-}
-
-
-void mousePressed() {
+  voicebug = new VoiceBug(50,50);
 }
 
 void captureEvent(Capture video) {
@@ -137,13 +133,11 @@ void draw() {
   
   ellipse(width/2,height/2,50,50);
   voicebug.update();
+  voicebug.seek(new PVector(lerpX, lerpY));
+  voicebug.display();
 }
 
 float distSq(float x1, float y1, float z1, float x2, float y2, float z2) {
   float d = (x2-x1)*(x2-x1) + (y2-y1)*(y2-y1) +(z2-z1)*(z2-z1);
   return d;
-}
-
-void mouseDragged() {
-  vehicles.add(new Vehicle(lerpX,lerpY));
 }
