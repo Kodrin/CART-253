@@ -8,7 +8,7 @@ class VoiceBug {
   int vx = 4;
   int vy;
   //creating an Y offset for the noise function
-  float yoff = 0.0;
+  float yoff = random(0,100);
   
   //variables for the AA
   PVector location;
@@ -41,7 +41,7 @@ class VoiceBug {
  
   void update() {
     val = level * 255;
-    println(val);
+    //println(val);
     //if statement here
     if(voiceIsPresent() == true){
     velocity.add(acceleration);
@@ -80,7 +80,7 @@ class VoiceBug {
     
     //calling the noise function
     yoff = yoff +.01; 
-    int n = int(noise(yoff)*height);
+    float n = noise(yoff)*height;
     
     //if the the voice is detected apply the noise to the rectangles
     if(voiceIsPresent() == true){

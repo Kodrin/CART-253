@@ -6,7 +6,6 @@ AudioInput mic;
 
 //MOTION CAP VARIABLE
 Capture video;
-VoiceBug voicebug;
 PImage prev;
 
 float threshold = 25;
@@ -20,8 +19,9 @@ float lerpY = 0;
 float level;
 float val;
 
-// A list of vehicles
+// A list of vehicles and voicebugs
 ArrayList<Vehicle> vehicles;
+ArrayList<VoiceBug> voicebugs;
 
 void setup() {
   //initiate video
@@ -37,12 +37,14 @@ void setup() {
   mic = minim.getLineIn();
   
   // initiates the vehicles through a loop
-    vehicles = new ArrayList<Vehicle>();
-    for (int i = 0; i < 100; i++) {
+  vehicles = new ArrayList<Vehicle>();
+  for (int i = 0; i < 100; i++) {
     vehicles.add(new Vehicle(random(width),random(height)));
   }
-  
-  voicebug = new VoiceBug(50,50);
+  voicebugs = new ArrayList<VoiceBug>();
+  for (int i = 0; i < 100; i++) {
+    voicebugs.add(new VoiceBug(random(width),random(height)));
+  }
 }
 
 void captureEvent(Capture video) {
@@ -120,20 +122,23 @@ void draw() {
   //println(mouseX, threshold);
   
     for (Vehicle v : vehicles) {
-    // Path following and separation are worked on in this function
-    v.applyBehaviors(vehicles);
-    // Call the generic run method (update, borders, display, etc.)
-    v.update();
-    v.display();
-  }
+      // Path following and separation are worked on in this function
+      v.applyBehaviors(vehicles);
+      // Call the generic run method (update, borders, display, etc.)
+      v.update();
+      v.display();
+    }
   
   //AUDIO UPDATE
   // Gets the current level (volume) going into the microphone
   level = mic.mix.level();
   
   ellipse(width/2,height/2,50,50);
-  voicebug.update();
-  voicebug.display();
+    for (VoiceBug b : voicebugs) {
+      b.update();
+      b.display();
+    }
+ 
 }
 
 float distSq(float x1, float y1, float z1, float x2, float y2, float z2) {
