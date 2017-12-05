@@ -5,9 +5,9 @@ class VoiceBug {
   int SPEED = 5;
   int SIZE = 16;
   // The velocity of the voicebugs
-  int vx;
+  int vx = 4;
   int vy;
-    //creating an Y offset for the noise function
+  //creating an Y offset for the noise function
   float yoff = 0.0;
   
   //variables for the AA
@@ -55,7 +55,7 @@ class VoiceBug {
 
     if (location.x < 0 || location.x > width) {
       // If it is, then make it "bounce" by reversing its velocity
-      vy = -vy;
+      vx = -vx;
     }
     }
   }
@@ -77,7 +77,19 @@ class VoiceBug {
     float theta = velocity.heading() + PI/2;
     fill(255,0,0);
     stroke(0);
-    rect(location.x,location.y, rectWidth, rectHeight);
+    
+    //calling the noise function
+    yoff = yoff +.01; 
+    int n = int(noise(yoff)*height);
+    
+    //if the the voice is detected apply the noise to the rectangles
+    if(voiceIsPresent() == true){
+      rect(location.x,location.y, rectWidth, rectHeight);
+    } else{
+      rect(location.x,location.y = n, rectWidth, rectHeight);
+    }
+    
+    //translation and roation
     pushMatrix();
     translate(location.x,location.y);
     rotate(theta);
