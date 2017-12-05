@@ -1,5 +1,16 @@
 class VoiceBug {
- 
+  //variables for movement without AA
+  
+  // Default values for speed and size
+  int SPEED = 5;
+  int SIZE = 16;
+  // The velocity of the voicebugs
+  int vx;
+  int vy;
+    //creating an Y offset for the noise function
+  float yoff = 0.0;
+  
+  //variables for the AA
   PVector location;
   PVector velocity;
   PVector acceleration;
@@ -8,7 +19,9 @@ class VoiceBug {
   float maxspeed;
   int rectWidth = 10;
   int rectHeight = 10;
- 
+  
+  //voice variables
+  float voiceThreshold;
   VoiceBug(float x, float y) {
     acceleration = new PVector(0,0);
     velocity = new PVector(0,0);
@@ -17,12 +30,34 @@ class VoiceBug {
     maxspeed = 4;
     maxforce = 0.1;
   }
+  
+  boolean voiceIsPresent(){
+    if(val > 20){
+      return true;
+    } else{
+      return false;
+    }
+  }
  
   void update() {
+    val = level * 255;
+    println(val);
+    //if statement here
+    if(voiceIsPresent() == true){
     velocity.add(acceleration);
     velocity.limit(maxspeed);
     location.add(velocity);
     acceleration.mult(0);
+    seek(new PVector(lerpX, lerpY));
+    } else{
+    location.x += vx;
+    location.y += vy;
+
+    if (location.x < 0 || location.x > width) {
+      // If it is, then make it "bounce" by reversing its velocity
+      vy = -vy;
+    }
+    }
   }
  
   void applyForce(PVector force) {
