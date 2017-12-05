@@ -57,6 +57,11 @@ class VoiceBug {
       // If it is, then make it "bounce" by reversing its velocity
       vx = -vx;
     }
+    if (location.y < 0 || location.y > height) {
+      // If it is, then make it "bounce" by reversing its velocity
+      vy = -vy;
+    }
+    
     }
   }
  
