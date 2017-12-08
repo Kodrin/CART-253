@@ -21,7 +21,7 @@ class VoiceBug {
   int rectHeight = 10;
   
   //voice variables
-  float voiceThreshold = 2;
+  float voiceThreshold = 5;
   
   
   VoiceBug(float x, float y) {
@@ -84,7 +84,6 @@ class VoiceBug {
     float theta = velocity.heading() + PI/2;
     fill(255,0,0);
     stroke(0);
-    
     //calling the noise function
     yoff = yoff +.01; 
     float n = noise(yoff)*height;
