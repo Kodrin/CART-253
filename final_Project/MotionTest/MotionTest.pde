@@ -22,6 +22,7 @@ float val;
 // A list of vehicles and voicebugs
 ArrayList<Vehicle> vehicles;
 ArrayList<VoiceBug> voicebugs;
+ArrayList<TactileBug> tactilebugs;
 
 void setup() {
   //initiate video
@@ -44,6 +45,10 @@ void setup() {
   voicebugs = new ArrayList<VoiceBug>();
   for (int i = 0; i < 100; i++) {
     voicebugs.add(new VoiceBug(random(width),random(height)));
+  }
+  tactilebugs = new ArrayList<TactileBug>();
+  for (int i = 0; i < 100; i++) {
+    tactilebugs.add(new TactileBug(random(width),random(height)));
   }
 }
 
@@ -129,15 +134,25 @@ void draw() {
       v.display();
     }
   
-  //AUDIO UPDATE
+  //AUDIO bugs UPDATE
   // Gets the current level (volume) going into the microphone
   level = mic.mix.level();
   
   ellipse(width/2,height/2,50,50);
-    for (VoiceBug b : voicebugs) {
+  
+  for (VoiceBug b : voicebugs) 
+  {
       b.update();
       b.display();
-    }
+  }
+  
+  //Tactile Bugs update
+  for (TactileBug b : tactilebugs) 
+  {
+      b.update();
+      b.seek(new PVector(mouseX,mouseY));
+      b.display();
+  }
  
 }
 
