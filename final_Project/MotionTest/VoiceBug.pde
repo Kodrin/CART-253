@@ -21,7 +21,9 @@ class VoiceBug {
   int rectHeight = 10;
   
   //voice variables
-  float voiceThreshold;
+  float voiceThreshold = 2;
+  
+  
   VoiceBug(float x, float y) {
     acceleration = new PVector(0,0);
     velocity = new PVector(0,0);
@@ -32,7 +34,7 @@ class VoiceBug {
   }
   
   boolean voiceIsPresent(){
-    if(val > 20){
+    if(val > voiceThreshold){
       return true;
     } else{
       return false;
