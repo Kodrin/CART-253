@@ -6,6 +6,9 @@ AudioInput mic;
 
 //MOTION CAP VARIABLE
 Capture video;
+//Goal object
+Goal goal1;
+
 PImage prev;
 
 float threshold = 25;
@@ -32,6 +35,7 @@ void setup() {
   video = new Capture(this, 1280, 720);
   video.start();
   prev = createImage(video.width, video.height, RGB);
+  
   //initiate audio
   minim = new Minim(this);
   // We use minim.getLineIn() to get access to the microphone data
@@ -50,6 +54,9 @@ void setup() {
   for (int i = 0; i < 100; i++) {
     tactilebugs.add(new TactileBug(random(width),random(height)));
   }
+  
+  //initiate the goal
+  goal1 = new Goal(width/2,height/2,1,1,50);
 }
 
 void captureEvent(Capture video) {
@@ -138,8 +145,6 @@ void draw() {
   // Gets the current level (volume) going into the microphone
   level = mic.mix.level();
   
-  ellipse(width/2,height/2,50,50);
-  
   for (VoiceBug b : voicebugs) 
   {
       b.update();
@@ -155,7 +160,8 @@ void draw() {
   }
   
   //Goal update
-  
+  goal1.update();
+  goal1.display();
  
 }
 
