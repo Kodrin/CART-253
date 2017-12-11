@@ -96,7 +96,7 @@ void draw() {
         avgX += x;
         avgY += y;
         count++;
-        pixels[loc] = color(255,255,0);
+        pixels[loc] = color(255);
       } else {
         pixels[loc] = color(0);
       }
@@ -153,6 +153,9 @@ void draw() {
       b.seek(new PVector(mouseX,mouseY));
       b.display();
   }
+  
+  //Goal update
+  
  
 }
 
