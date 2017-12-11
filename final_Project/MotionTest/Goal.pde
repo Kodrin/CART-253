@@ -6,6 +6,7 @@ class Goal {
  int vy;
  int size;
  color fillColor = color(255,255,0);
+ int scoreCount = 0;
 
  Goal(int tempX, int tempY, int tempVX, int tempVY, int tempSize) {
    x = tempX;
@@ -32,8 +33,18 @@ void update(){
 }
 
 void display(){
-   noStroke();
    fill(fillColor);
    ellipse(x,y,size,size);
+   
+   //score count
+   pushStyle();
+   fill(0);
+   textSize(32);
+   text(scoreCount, x,y);
+   popStyle();
+}
+
+void collideWithAgent (){
+
 }
 }
