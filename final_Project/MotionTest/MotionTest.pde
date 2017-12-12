@@ -140,6 +140,13 @@ void draw() {
       v.update();
       v.display();
     }
+    for (int i = 0; i < vehicles.size(); i++){
+    Vehicle b = vehicles.get(i);
+        if(dist(goal1.x,goal1.y,b.position.x,b.position.y) < 10){
+        vehicles.remove(i);
+        goal1.scoreCount ++;
+        }
+     }
   
   //AUDIO bugs UPDATE
   // Gets the current level (volume) going into the microphone
@@ -149,6 +156,13 @@ void draw() {
   {
       b.update();
       b.display();
+  }
+  for (int i = 0; i < voicebugs.size(); i++){
+    VoiceBug b = voicebugs.get(i);
+        if(dist(goal1.x,goal1.y,b.location.x,b.location.y) < 10){
+        voicebugs.remove(i);
+        goal1.scoreCount ++;
+        }
   }
     //Goal update
   goal1.update();
@@ -171,6 +185,7 @@ void draw() {
     TactileBug b = tactilebugs.get(i);
         if(dist(goal1.x,goal1.y,b.location.x,b.location.y) < 10){
         tactilebugs.remove(i);
+        goal1.scoreCount ++;
         }
   }
  
