@@ -4,10 +4,14 @@ import ddf.minim.*;
 Minim minim;
 AudioInput mic; 
 
-//MOTION CAP VARIABLE
+//VIDEO
 Capture video;
+
 //Goal object
 Goal goal1;
+
+//SOUND
+SoundFile bell;
 
 PImage prev;
 
@@ -33,6 +37,9 @@ int totalVoiceBugs = 100;
 int totalTactileBugs = 100;
 
 void setup() {
+  //initiating the soundfile
+  bell = new SoundFile(this, "sounds/ting.mp3");
+  
   //initiate video
   size(1280, 720);
   String[] cameras = Capture.list();
@@ -149,6 +156,7 @@ void draw() {
     Vehicle b = vehicles.get(i);
         if(dist(goal1.x,goal1.y,b.position.x,b.position.y) < goal1.size/2){
         vehicles.remove(i);
+        bell.play();
         goal1.scoreCount ++;
         goal1.size ++;
         }
@@ -167,6 +175,7 @@ void draw() {
     VoiceBug b = voicebugs.get(i);
         if(dist(goal1.x,goal1.y,b.location.x,b.location.y) < goal1.size/2){
         voicebugs.remove(i);
+        bell.play();
         goal1.scoreCount ++;
         goal1.size ++;
         }
@@ -192,6 +201,7 @@ void draw() {
     TactileBug b = tactilebugs.get(i);
         if(dist(goal1.x,goal1.y,b.location.x,b.location.y) < goal1.size/2){
         tactilebugs.remove(i);
+        bell.play();
         goal1.scoreCount ++;
         goal1.size ++;
         }

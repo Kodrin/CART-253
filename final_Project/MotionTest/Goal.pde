@@ -41,7 +41,7 @@ void display(){
    
    //score count
    pushStyle();
-   fill(0);
+   fill(fillColor);
    textSize(32);
    text(scoreCount, x,y);
    popStyle();
