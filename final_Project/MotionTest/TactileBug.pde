@@ -9,6 +9,9 @@ class TactileBug {
   float maxspeed;
   int rectWidth = 10;
   int rectHeight = 10;
+  
+  float x;
+  float y;
  
   TactileBug(float x, float y) {
     acceleration = new PVector(0,0);

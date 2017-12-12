@@ -150,6 +150,9 @@ void draw() {
       b.update();
       b.display();
   }
+    //Goal update
+  goal1.update();
+  goal1.display();
   
   //Tactile Bugs update
   for (TactileBug b : tactilebugs) 
@@ -157,11 +160,19 @@ void draw() {
       b.update();
       b.seek(new PVector(mouseX,mouseY));
       b.display();
+      //if(tactilebugs.size() <= 100){
+      //  if(dist(goal1.x,goal1.y,b.location.x,b.location.y) < 10){
+      //  tactilebugs.remove(b);
+      //  }
+      //}
+      //goal1.collideWithTactile(b);
   }
-  
-  //Goal update
-  goal1.update();
-  goal1.display();
+  for (int i = 0; i < tactilebugs.size(); i++){
+    TactileBug b = tactilebugs.get(i);
+        if(dist(goal1.x,goal1.y,b.location.x,b.location.y) < 10){
+        tactilebugs.remove(i);
+        }
+  }
  
 }
 

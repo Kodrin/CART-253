@@ -1,9 +1,9 @@
 class Goal {
   
- int x;
- int y;
- int vx;
- int vy;
+ float x;
+ float y;
+ float vx;
+ float vy;
  int size;
  color fillColor = color(255,255,0);
  int scoreCount = 0;
@@ -44,7 +44,9 @@ void display(){
    popStyle();
 }
 
-void collideWithAgent (){
-
-}
+//void collideWithTactile (TactileBug other){
+//   if(dist(x,y,other.location.x,other.location.y) < 10){
+     
+//   }
+//}
 }
