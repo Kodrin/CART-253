@@ -142,7 +142,7 @@ void draw() {
     }
     for (int i = 0; i < vehicles.size(); i++){
     Vehicle b = vehicles.get(i);
-        if(dist(goal1.x,goal1.y,b.position.x,b.position.y) < 10){
+        if(dist(goal1.x,goal1.y,b.position.x,b.position.y) < goal1.size/2){
         vehicles.remove(i);
         goal1.scoreCount ++;
         goal1.size ++;
@@ -160,7 +160,7 @@ void draw() {
   }
   for (int i = 0; i < voicebugs.size(); i++){
     VoiceBug b = voicebugs.get(i);
-        if(dist(goal1.x,goal1.y,b.location.x,b.location.y) < 10){
+        if(dist(goal1.x,goal1.y,b.location.x,b.location.y) < goal1.size/2){
         voicebugs.remove(i);
         goal1.scoreCount ++;
         goal1.size ++;
@@ -185,7 +185,7 @@ void draw() {
   }
   for (int i = 0; i < tactilebugs.size(); i++){
     TactileBug b = tactilebugs.get(i);
-        if(dist(goal1.x,goal1.y,b.location.x,b.location.y) < 10){
+        if(dist(goal1.x,goal1.y,b.location.x,b.location.y) < goal1.size/2){
         tactilebugs.remove(i);
         goal1.scoreCount ++;
         goal1.size ++;
