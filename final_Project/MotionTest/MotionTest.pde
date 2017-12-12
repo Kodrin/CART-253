@@ -56,7 +56,7 @@ void setup() {
   }
   
   //initiate the goal
-  goal1 = new Goal(width/2,height/2,1,1,50);
+  goal1 = new Goal(width/2,height/2,1,1,10);
 }
 
 void captureEvent(Capture video) {
@@ -145,6 +145,7 @@ void draw() {
         if(dist(goal1.x,goal1.y,b.position.x,b.position.y) < 10){
         vehicles.remove(i);
         goal1.scoreCount ++;
+        goal1.size ++;
         }
      }
   
@@ -162,6 +163,7 @@ void draw() {
         if(dist(goal1.x,goal1.y,b.location.x,b.location.y) < 10){
         voicebugs.remove(i);
         goal1.scoreCount ++;
+        goal1.size ++;
         }
   }
     //Goal update
@@ -186,6 +188,7 @@ void draw() {
         if(dist(goal1.x,goal1.y,b.location.x,b.location.y) < 10){
         tactilebugs.remove(i);
         goal1.scoreCount ++;
+        goal1.size ++;
         }
   }
  
