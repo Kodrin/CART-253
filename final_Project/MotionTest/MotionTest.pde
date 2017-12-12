@@ -27,6 +27,11 @@ ArrayList<Vehicle> vehicles;
 ArrayList<VoiceBug> voicebugs;
 ArrayList<TactileBug> tactilebugs;
 
+//Number of particle for each agent
+int totalVehicles = 100;
+int totalVoiceBugs = 100;
+int totalTactileBugs = 100;
+
 void setup() {
   //initiate video
   size(1280, 720);
@@ -43,15 +48,15 @@ void setup() {
   
   // initiates the vehicles through a loop
   vehicles = new ArrayList<Vehicle>();
-  for (int i = 0; i < 100; i++) {
+  for (int i = 0; i < totalVehicles; i++) {
     vehicles.add(new Vehicle(random(width),random(height)));
   }
   voicebugs = new ArrayList<VoiceBug>();
-  for (int i = 0; i < 100; i++) {
+  for (int i = 0; i < totalVoiceBugs; i++) {
     voicebugs.add(new VoiceBug(random(width),random(height)));
   }
   tactilebugs = new ArrayList<TactileBug>();
-  for (int i = 0; i < 100; i++) {
+  for (int i = 0; i < totalTactileBugs; i++) {
     tactilebugs.add(new TactileBug(random(width),random(height)));
   }
   
@@ -169,7 +174,7 @@ void draw() {
     //Goal update
   goal1.update();
   goal1.display();
-  
+  goal1.gameOver();
   //Tactile Bugs update
   for (TactileBug b : tactilebugs) 
   {

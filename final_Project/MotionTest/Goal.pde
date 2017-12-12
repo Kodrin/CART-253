@@ -7,6 +7,7 @@ class Goal {
  int size;
  color fillColor = color(255,255,0);
  int scoreCount = 0;
+ int maxScore = totalVehicles + totalVoiceBugs + totalTactileBugs;
 
  Goal(int tempX, int tempY, int tempVX, int tempVY, int tempSize) {
    x = tempX;
@@ -42,6 +43,16 @@ void display(){
    textSize(32);
    text(scoreCount, x,y);
    popStyle();
+}
+
+void gameOver(){
+   // WINNING CONDITION pauses the game when the player picks up the total amount of particles
+   if (scoreCount >= maxScore) {
+      textSize(64);
+      textAlign(CENTER, CENTER);
+      text("YOU WIN", width/2, height/2); 
+      frameRate(0);
+   }
 }
 
 //void collideWithTactile (TactileBug other){
