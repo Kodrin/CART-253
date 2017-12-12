@@ -12,6 +12,7 @@ Goal goal1;
 
 //SOUND
 SoundFile bell;
+SoundFile soundTrack;
 
 PImage prev;
 
@@ -39,6 +40,8 @@ int totalTactileBugs = 100;
 void setup() {
   //initiating the soundfile
   bell = new SoundFile(this, "sounds/ting.mp3");
+  soundTrack = new SoundFile(this, "sounds/soothingSoundtrack.mp3");
+  soundTrack.loop();
   
   //initiate video
   size(1280, 720);
