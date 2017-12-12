@@ -94,8 +94,8 @@ class Vehicle {
   void display() {
     pushMatrix();
     pushStyle();
-    fill(0,0,255);
-    stroke(0);
+    noFill();
+    stroke(0,0,255);
     translate(position.x, position.y);
     ellipse(0, 0, r, r);
     popStyle();

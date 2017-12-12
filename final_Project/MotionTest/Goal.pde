@@ -34,7 +34,9 @@ void update(){
 }
 
 void display(){
-   fill(fillColor);
+   noFill();
+   stroke(fillColor);
+   //fill(fillColor);
    ellipse(x,y,size,size);
    
    //score count

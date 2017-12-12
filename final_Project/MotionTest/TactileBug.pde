@@ -44,8 +44,8 @@ class TactileBug {
  
   void display() {
     float theta = velocity.heading() + PI/2;
-    fill(0,255,0);
-    stroke(0);
+    noFill();
+    stroke(0,255,0);
     rect(location.x,location.y, rectWidth, rectHeight);
     pushMatrix();
     translate(location.x,location.y);

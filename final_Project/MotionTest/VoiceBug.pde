@@ -82,8 +82,8 @@ class VoiceBug {
  
   void display() {
     float theta = velocity.heading() + PI/2;
-    fill(255,0,0);
-    stroke(0);
+    noFill();
+    stroke(255,0,0);
     //calling the noise function
     yoff = yoff +.01; 
     float n = noise(yoff)*height;
