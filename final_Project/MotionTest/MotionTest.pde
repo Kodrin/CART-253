@@ -1,7 +1,17 @@
 //////////////////////////////////////////////////////////////////////////////////////////////
 /* ARTIST STATEMENT
 name of the game : GEOPOINT 
+GEOPOINT is an interactive game where the player controls various autonomous agents through 3 inputs; motion, voice, and mouse.
+Each of the 3 autonomous agents is reacting to one of these inputs. The vehicle bug will follow the magenta circle which is controlled through
+video motion tracking. The tactile bug will follow the user's mouse on screen. And, the voice bug will follow the magenta circle when it detects 
+the user's voice. The goal of this game is to get all of your autonomous agent in the yellow goal. You win the game by doing so. 
+The game itself is intended to be a soothing experience where the player just has fun interacting with the agents and herding them into the yellow goal.
 
+IMPORTANT!!
+-You need to microphone and webcam to play this game
+-You should play this game in a silent room in order to minimize interference
+-The webcam should be on a stable surface so has to minimize residual motion.
+-If the voice detection is too sensitive for you. Change the voiceThreshold variable in the VoiceBug class from 5 to 10/15/20
 */
 //////////////////////////////////////////////////////////////////////////////////////////////
 //we import the video, sound and minim library 
