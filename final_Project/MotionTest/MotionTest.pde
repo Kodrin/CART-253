@@ -1,6 +1,7 @@
 import processing.video.*;
 import processing.sound.*;
 import ddf.minim.*;
+
 Minim minim;
 AudioInput mic; 
 
@@ -137,16 +138,15 @@ void draw() {
   lerpX = lerp(lerpX, motionX, 0.1); 
   lerpY = lerp(lerpY, motionY, 0.1); 
   
+  //THE MAGENTA ELLIPSE
   pushStyle();
   noFill();
   strokeWeight(2.0);
   stroke(255, 0, 255);
   ellipse(lerpX, lerpY, 36, 36);
   popStyle();
-  //image(video, 0, 0, 100, 100);
-  //image(prev, 100, 0, 100, 100);
-
-  //println(mouseX, threshold);
+  
+  //VEHICLE updates
   
     for (Vehicle v : vehicles) {
       // Path following and separation are worked on in this function
@@ -183,22 +183,18 @@ void draw() {
         goal1.size ++;
         }
   }
-    //Goal update
+  
+  //Goal update
   goal1.update();
   goal1.display();
   goal1.gameOver();
+  
   //Tactile Bugs update
   for (TactileBug b : tactilebugs) 
   {
       b.update();
       b.seek(new PVector(mouseX,mouseY));
       b.display();
-      //if(tactilebugs.size() <= 100){
-      //  if(dist(goal1.x,goal1.y,b.location.x,b.location.y) < 10){
-      //  tactilebugs.remove(b);
-      //  }
-      //}
-      //goal1.collideWithTactile(b);
   }
   for (int i = 0; i < tactilebugs.size(); i++){
     TactileBug b = tactilebugs.get(i);
