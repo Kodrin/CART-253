@@ -1,14 +1,24 @@
+//////////////////////////////////////////////////////////////////////////////////////////////
+/*
+the goal class is represented by the yellow ellipse that floats around.
+it keeps track of the score everytime an autonomous agent particle collide with it
+*/
+//////////////////////////////////////////////////////////////////////////////////////////////
 class Goal {
-  
+ 
+ //variables for x y position, size and velocity
  float x;
  float y;
  float vx;
  float vy;
  int size;
  color fillColor = color(255,255,0);
+ 
+ //scorecount and maximum possible score
  int scoreCount = 0;
  int maxScore = totalVehicles + totalVoiceBugs + totalTactileBugs;
 
+ //goal constructor with parameters
  Goal(int tempX, int tempY, int tempVX, int tempVY, int tempSize) {
    x = tempX;
    y = tempY;
@@ -18,6 +28,7 @@ class Goal {
  }
 
 void update(){
+   //basic movement and collision similar to the bouncer exercises
    x += vx;
    y += vy;
    
@@ -34,6 +45,7 @@ void update(){
 }
 
 void display(){
+   //display the ellipse along with the actual score count 
    noFill();
    stroke(fillColor);
    //fill(fillColor);
@@ -56,10 +68,4 @@ void gameOver(){
       frameRate(0);
    }
 }
-
-//void collideWithTactile (TactileBug other){
-//   if(dist(x,y,other.location.x,other.location.y) < 10){
-     
-//   }
-//}
 }

@@ -1,3 +1,9 @@
+//////////////////////////////////////////////////////////////////////////////////////////////
+/*
+The tactile bug class is the autonomous agent that reacts to the mouse input of the user.
+It follows the mouse.
+*/
+//////////////////////////////////////////////////////////////////////////////////////////////
 class TactileBug {
   
   //variables for the AA
@@ -12,7 +18,8 @@ class TactileBug {
   
   float x;
   float y;
- 
+  
+  //Constructor for the bug
   TactileBug(float x, float y) {
     acceleration = new PVector(0,0);
     velocity = new PVector(0,0);
@@ -22,6 +29,7 @@ class TactileBug {
     maxforce = 0.1;
   }
  
+  //adds accelerationa and velocity while limiting it to the maximum speed variable
   void update() {
     velocity.add(acceleration);
     velocity.limit(maxspeed);
@@ -29,10 +37,12 @@ class TactileBug {
     acceleration.mult(0);
   }
  
+ //applies force to the object
   void applyForce(PVector force) {
     acceleration.add(force);
   }
  
+ //we use reynold's equation of steering to get our desired vector/direction to push along, we also normalize everything to 1 so everything travels a the same speed
   void seek(PVector target) {
     PVector desired = PVector.sub(target,location);
     desired.normalize();
@@ -42,6 +52,7 @@ class TactileBug {
     applyForce(steer);
   }
  
+ //specifies the display and rotation(theta) of the objects
   void display() {
     float theta = velocity.heading() + PI/2;
     noFill();

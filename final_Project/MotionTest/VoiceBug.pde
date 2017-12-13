@@ -1,3 +1,9 @@
+//////////////////////////////////////////////////////////////////////////////////////////////
+/*
+The voice bug class is an autonomous agent that will follow the magenta circle when it detects the voice input of the user.
+Otherwise, the voice bug will move randomly according to the noise function.
+*/
+//////////////////////////////////////////////////////////////////////////////////////////////
 class VoiceBug {
   //variables for movement without AA
   
@@ -23,7 +29,7 @@ class VoiceBug {
   //voice variables
   float voiceThreshold = 5;
   
-  
+  //constructor for the voicebug
   VoiceBug(float x, float y) {
     acceleration = new PVector(0,0);
     velocity = new PVector(0,0);
@@ -33,6 +39,8 @@ class VoiceBug {
     maxforce = 0.1;
   }
   
+  //a boolean that checks if the user's voice goes above the specified threshold.
+  //if it does, it returns true
   boolean voiceIsPresent(){
     if(val > voiceThreshold){
       return true;
@@ -41,20 +49,22 @@ class VoiceBug {
     }
   }
  
+ //updates everything
   void update() {
-    val = level * 255;
-    //println(val);
-    //if statement here
+    val = level * 255; //increases the normalized value of the mic input
+    
+    //if the voice is detected apply the autonomous agent behvaviour
     if(voiceIsPresent() == true){
     velocity.add(acceleration);
     velocity.limit(maxspeed);
     location.add(velocity);
     acceleration.mult(0);
     seek(new PVector(lerpX, lerpY));
-    } else{
+    } else{     //else just make the bug move in accordance to the noise function
     location.x += vx;
     location.y += vy;
-
+    
+    //these if statements specify collision
     if (location.x < 0 || location.x > width) {
       // If it is, then make it "bounce" by reversing its velocity
       vx = -vx;
@@ -67,10 +77,12 @@ class VoiceBug {
     }
   }
  
+ //applies the force to the object
   void applyForce(PVector force) {
     acceleration.add(force);
   }
  
+ //uses reynold's equation to seek the target
   void seek(PVector target) {
     PVector desired = PVector.sub(target,location);
     desired.normalize();
@@ -80,6 +92,7 @@ class VoiceBug {
     applyForce(steer);
   }
  
+ //display the agents with rectangle and applies rotation theta
   void display() {
     float theta = velocity.heading() + PI/2;
     noFill();

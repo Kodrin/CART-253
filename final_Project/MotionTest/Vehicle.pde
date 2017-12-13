@@ -1,6 +1,13 @@
+//////////////////////////////////////////////////////////////////////////////////////////////
+/*
+The vehicle class is an autonomous agent that reacts to the motion of the user by following the magenta circle.
+its behaviour is different in the sense that it seeks the target, but also separates from neighbouring agents
+so they dont overlap with one another.
+*/
+//////////////////////////////////////////////////////////////////////////////////////////////
 class Vehicle {
 
-  // All the usual stuff
+  // same variables as the tactile bug
   PVector position;
   PVector velocity;
   PVector acceleration;
@@ -18,11 +25,13 @@ class Vehicle {
     velocity = new PVector(0, 0);
   }
 
+  //applies force to the object
   void applyForce(PVector force) {
     // We could add mass here if we want A = F / M
     acceleration.add(force);
   }
   
+  //applies all the behavioural component to the arraylist of autonomous agents
   void applyBehaviors(ArrayList<Vehicle> vehicles) {
      PVector separateForce = separate(vehicles);
      PVector seekForce = seek(new PVector(lerpX,lerpY));
@@ -32,8 +41,7 @@ class Vehicle {
      applyForce(seekForce); 
   }
   
-    // A method that calculates a steering force towards a target
-  // STEER = DESIRED MINUS VELOCITY
+  // we use reynold's equation again to steer and normalize the agents
   PVector seek(PVector target) {
     PVector desired = PVector.sub(target,position);  // A vector pointing from the position to the target
     
